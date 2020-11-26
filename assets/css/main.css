@@ -1,0 +1,15 @@
+:root{
+  --primary-color:#07889B;
+  --secondary-color:#66B9BF;
+  --third-color:#E37222;
+}
+
+.primary-color{
+  color:var(--primary-color);
+}
+.secondary-color{
+  color:var(--secondary-color);
+}
+.third-color{
+  color:var(--third-color);
+}
