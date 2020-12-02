@@ -22,6 +22,16 @@
     placeholder="Achternaam"
     error-behavior="live"
   />
+  <div class="container">
+    <div>
+    <img src="" alt="logo"/>
+    </div>
+    <div>
+      <FormulateInput
+        type="button"
+        label="Terug naar vorig scherm"
+      />
+      <p class="title">Kapsalon Kapper</p>
     </div>
   </div>
     <FormulateInput
@@ -43,15 +53,12 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        formValues: {}
-      }
-    }
-  }
+export default {
+  plugins: [
+    '~/plugins/vue-formulate',
+  ]
+}
 </script>
-
 
 <style scoped>
 .container {

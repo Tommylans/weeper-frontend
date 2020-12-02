@@ -1,4 +1,9 @@
 <template>
+<<<<<<< c087c18ffb3e90d937f6a4860de7a5689ab8b85e
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Contact pagina
   <FormulateForm
     class="container"
     v-model="formValues"
@@ -40,10 +45,24 @@
     />
 
   </FormulateForm>
+<<<<<<< c087c18ffb3e90d937f6a4860de7a5689ab8b85e
+=======
+=======
+
+>>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
+>>>>>>> Contact pagina
 </template>
 
 <script>
 export default {
+<<<<<<< c087c18ffb3e90d937f6a4860de7a5689ab8b85e
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Contact pagina
   name: "contactPagina.vue",
   data()
   {
@@ -51,10 +70,24 @@ export default {
       formValues: {}
     }
   }
+<<<<<<< c087c18ffb3e90d937f6a4860de7a5689ab8b85e
+=======
+=======
+  name: "contactPagina.vue"
+>>>>>>> Stashed changes
+=======
+  name: "contactPagina.vue"
+>>>>>>> Stashed changes
+>>>>>>> Contact pagina
 }
 </script>
 
 <style scoped>
+<<<<<<< c087c18ffb3e90d937f6a4860de7a5689ab8b85e
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Contact pagina
 .container {
   padding: 2em;
   border: 1px solid #a8a8a8;
@@ -82,4 +115,13 @@ export default {
   margin-left: 5px;
   width: 50%;
 }
+<<<<<<< c087c18ffb3e90d937f6a4860de7a5689ab8b85e
+=======
+=======
+
+>>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
+>>>>>>> Contact pagina
 </style>
