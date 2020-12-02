@@ -62,14 +62,30 @@ export default {
 
 <style scoped>
 .container {
-  padding: 2em;
-  border: 1px solid #a8a8a8;
-  border-radius: .5em;
-  max-width: 80%;
-  box-sizing: border-box;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
 }
-.form-title {
-  margin-top: 0;
+
+.title {
+  font-family:
+    'Quicksand',
+    'Source Sans Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 30px;
+  color: #35495e;
+  letter-spacing: 1px;
 }
 .login-form::v-deep .formulate-input .formulate-input-element {
   max-width: none;

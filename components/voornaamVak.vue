@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: "contactPagina.vue"
+  name: "Commit button"
+  methods:
 }
 </script>
 
