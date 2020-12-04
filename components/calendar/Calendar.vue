@@ -58,6 +58,8 @@ export default {
     },
     switchWeek(amount) {
       this.selectedDate = this.selectedDate.add(amount, 'week')
+      this.selectedTimeslot = null;
+      this.changedDateTimeslot()
     },
     isSelectedDate(date) {
       return this.selectedDate.isSame(date, "date")
