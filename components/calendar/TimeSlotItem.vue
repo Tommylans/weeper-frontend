@@ -1,5 +1,5 @@
 <template>
-  <li tabindex="0" @click="selectTimeslot" :class="{selected: selected}">
+  <li tabindex="0" @click="selectTimeslot" @keyup.enter="selectTimeslot" :class="{selected: selected}">
     <span>{{time}}</span>
     <span>€ {{price}}</span>
   </li>
