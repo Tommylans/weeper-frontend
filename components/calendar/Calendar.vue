@@ -54,6 +54,7 @@ export default {
     selectDate(date) {
       this.selectedDate = date;
       this.selectedTimeslot = null;
+      this.changedDateTimeslot()
     },
     switchWeek(amount) {
       this.selectedDate = this.selectedDate.add(amount, 'week')
@@ -63,6 +64,7 @@ export default {
     },
     selectTimeslot(timeslot) {
       this.selectedTimeslot = timeslot;
+      this.changedDateTimeslot()
     },
     changedDateTimeslot() {
       if (!this.timeslots) {
