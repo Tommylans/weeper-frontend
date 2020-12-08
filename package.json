@@ -9,9 +9,15 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@braid/vue-formulate": "^2.4.5",
     "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/dayjs": "^1.2.1",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.14.6",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
+    "vue-formulate": "^0.12.1"
   },
   "devDependencies": {}
 }

@@ -14,10 +14,15 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/css/main.css',
+    '@/assets/css/global.scss',
+    'normalize.css',
+    '@/assets/inputs.scss',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/vue-formulate',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -31,10 +36,21 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/dayjs',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
+
+  // DayJS module configuration (https://www.npmjs.com/package/@nuxtjs/dayjs)
+  dayjs: {
+    locales: ['nl', 'en'],
+    defaultLocale: 'nl',
+    plugins: [
+      'isoWeek',
+      'isToday',
+    ] // Your Day.js plugin
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
