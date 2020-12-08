@@ -1,17 +1,15 @@
 <template>
   <div class="container">
-   <div>
-     <TreatmentOverview>
-
-     </TreatmentOverview>
-   </div>
+    <div>
+      <Calendar/>
+    </div>
   </div>
 </template>
 
 <script>
-import TreatmentOverview from "@/components/TreatmentOverview";
+import Calendar from "../components/calendar/Calendar";
 export default {
-  components: {TreatmentOverview}
+  components: {Calendar}
 }
 </script>
 
@@ -23,9 +21,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  text-align: center;
-  padding: 1em;
+  align-items: center;
+}
 
 }
 
