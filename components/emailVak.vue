@@ -37,8 +37,7 @@
 
 <script>
 export default {
-  name: "emailVak.vue"
-  methods: (postMessage("test"))
+  name: "EmailVak",
 }
 
 </script>
