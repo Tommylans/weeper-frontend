@@ -1,38 +1,40 @@
 <template>
-  <div class="double-wide">
+  <div>
+    <div class="double-wide">
+      <FormulateInput
+        class="voornaam"
+        type="text"
+        name="Voornaam"
+        label="Voornaam"
+        placeholder="Voornaam"
+        error-behavior="live"
+      />
+      <FormulateInput
+        class="achternaam"
+        type="text"
+        name="Achternaam"
+        label="Achternaam"
+        placeholder="Achternaam"
+        error-behavior="live"
+      />
+    </div>
+
     <FormulateInput
-      class="voornaam"
-      type="text"
-      name="Voornaam"
-      label="Voornaam"
-      placeholder="Voornaam"
-      error-behavior="live"
+      type="email"
+      name="Email"
+      label="E-mail adress"
+      placeholder="voorbeeld@example.nl"
+      validation="required|email"
     />
+
     <FormulateInput
-      class="achternaam"
-      type="text"
-      name="Achternaam"
-      label="Achternaam"
-      placeholder="Achternaam"
-      error-behavior="live"
+      type="tel"
+      name="Nummer"
+      label="Telefoon nummer"
+      placeholder="06-12345678"
+      validation="required"
     />
   </div>
-
-  <FormulateInput
-    type="email"
-    name="Email"
-    label="E-mail adress"
-    placeholder="voorbeeld@example.nl"
-    validation="required|email"
-  />
-
-  <FormulateInput
-    type="tel"
-    name="Nummer"
-    label="Telefoon nummer"
-    placeholder="06-12345678"
-    validation="required"
-  />
 </template>
 
 <script>
