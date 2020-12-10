@@ -52,18 +52,18 @@ export default {
 
 .winkelwagen-container {
   position: fixed;
-  right:0;
+  right: 0;
 }
 
-.container-options{
+.container-options {
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
 }
 
-.calendar-container{
-  width:23em;
+.calendar-container {
+  width: 23em;
 }
 
 </style>

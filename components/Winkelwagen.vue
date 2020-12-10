@@ -53,7 +53,6 @@ export default {
         return this.$store.state.winkelwagen.step;
       },
       set: function (value) {
-        console.log(value);
         this.$store.commit('winkelwagen/setStep', value)
       }
     },

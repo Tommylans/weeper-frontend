@@ -50,7 +50,6 @@ export default {
         return this.$store.state.winkelwagen.contact;
       },
       set: function(value) {
-        console.log(value);
         this.$store.commit('winkelwagen/setContactDetails', value)
       }
     }
