@@ -5,50 +5,26 @@
     </div>
 
     <div class="body-behandeling">
-      <div class="container-behandeling">
+      <div class="container-behandeling" v-for="treatment in treatments">
         <div class="behandeling-left">
           <div class="left-top">
-            <h3 class="naam-behandeling">Knippen - Wassen - Drogen</h3>
+            <h3 class="naam-behandeling">{{treatment.name}}</h3>
           </div>
 
           <div class="left-bottom">
             <div class="behandeling-prijs">
-              <p>€25,-</p>
+              <p>€{{treatment.price}},-</p>
             </div>
 
             <div class="behandeling-tijd">
-              <p>45 min</p>
+              <p>{{treatment.duration}} min</p>
             </div>
           </div>
 
         </div>
 
         <div class="behandeling-right">
-          <button class="toevoegen">
-            Toevoegen
-          </button>
-        </div>
-      </div>
-      <div class="container-behandeling">
-        <div class="behandeling-left">
-          <div class="left-top">
-            <h3 class="naam-behandeling">Knippen - Wassen - Drogen</h3>
-          </div>
-
-          <div class="left-bottom">
-            <div class="behandeling-prijs">
-              <p>€25,-</p>
-            </div>
-
-            <div class="behandeling-tijd">
-              <p>45 min</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="behandeling-right">
-          <button class="toevoegen">
+          <button class="toevoegen" @click="addToWinkelwagen(treatment)">
             Toevoegen
           </button>
         </div>
@@ -58,8 +34,25 @@
 </template>
 
 <script>
+
 export default {
-  name:"TreatmentOverview"
+  name:"TreatmentOverview",
+  methods: {
+    addToWinkelwagen(treatment) {
+      this.$store.commit('winkelwagen/addTreatmentChoice', treatment);
+    }
+  },
+  props: {
+    treatments: { //dummy
+      type: Array,
+      default: () => [
+        {price: 15, duration: 45, name: 'Knippen - Wassen - Drogen'},
+        {price: 45, duration: 15, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 100, duration: 80, name: 'Knippen - Wassen - Drogen'},
+      ]
+    }
+  }
 }
 </script>
 
@@ -73,17 +66,6 @@ export default {
   --text-four: 'Lato', sans-serif;
   --text-five:'Roboto', sans-serif;
 }
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
-  padding: 1em;
-
-}
 
 .top-behandeling {
   height: auto;
@@ -93,7 +75,6 @@ export default {
   display: flex;
   align-items: flex-start;
 }
-
 
 .top-behandeling .titel-behandeling{
   font-size: 1.5em;
@@ -113,7 +94,9 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   padding: 0.5em;
+  border-bottom: var(--secondary-color) 1px solid;
 }
+
 .behandeling-left{
   display: flex;
   flex-direction: column;
