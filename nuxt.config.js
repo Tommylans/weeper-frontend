@@ -17,7 +17,7 @@ export default {
     '@/assets/css/main.css',
     '@/assets/css/global.scss',
     'normalize.css',
-    '@/assets/inputs.scss',
+    '@/assets/css/inputs.scss',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -30,6 +30,7 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -54,5 +55,13 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+
+  //fontawesome icons
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true,
+    }
   }
 }
