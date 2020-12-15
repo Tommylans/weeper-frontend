@@ -1,20 +1,23 @@
 <template>
-  <div class="container">
-    <div class="winkelwagen-container" v-if="step <= 3">
-      <Winkelwagen/>
-    </div>
-    <div class="container-options">
-      <div class="treatment-container" v-if="step === 0">
-        <TreatmentOverview/>
+  <div class="container-navigatie">
+    <AlgemeneNavigatie/>
+    <div class="container">
+      <div class="winkelwagen-container" v-if="step <= 3">
+        <Winkelwagen/>
       </div>
-      <div class="calendar-container" v-if="step === 2">
-        <Calendar @selectDateTimeslot="selectDateTimeslot"/>
-      </div>
-      <div class="email-container" v-if="step === 3">
-        <EmailVak/>
-      </div>
-      <div class="appointment-container" v-if="step === 4">
-        <AppointmentConfirm/>
+      <div class="container-options">
+        <div class="treatment-container" v-if="step === 0">
+          <TreatmentOverview/>
+        </div>
+        <div class="calendar-container" v-if="step === 2">
+          <Calendar @selectDateTimeslot="selectDateTimeslot"/>
+        </div>
+        <div class="email-container" v-if="step === 3">
+          <EmailVak/>
+        </div>
+        <div class="appointment-container" v-if="step === 4">
+          <AppointmentConfirm/>
+        </div>
       </div>
     </div>
   </div>
@@ -27,9 +30,10 @@ import AppointmentConfirm from "@/components/AppointmentConfirm";
 import TreatmentOverview from "@/components/TreatmentOverview";
 import EmailVak from "@/components/EmailVak";
 import Calendar from "@/components/calendar/Calendar";
+import AlgemeneNavigatie from "@/components/AlgemeneNavigatie";
 
 export default {
-  components: {Calendar, EmailVak, TreatmentOverview, AppointmentConfirm, Winkelwagen},
+  components: {AlgemeneNavigatie, Calendar, EmailVak, TreatmentOverview, AppointmentConfirm, Winkelwagen},
   computed: {
     step() {
       return this.$store.state.winkelwagen.step
