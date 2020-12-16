@@ -1,30 +1,32 @@
 <template>
-  <div class="agenda-card">
-    <div class="agenda-header">
-      <div class="pijl-container">
-        <button v-show="!isCurrentWeek" class="pijltje-button" @click="switchWeek(-1)">
-          <Pijltje class="pijltje left"/>
-        </button>
+  <div class="agenda-card card shadow background">
+    <div class="card soft-shadow">
+      <div class="agenda-header">
+        <div class="pijl-container">
+          <button v-show="!isCurrentWeek" class="pijltje-button" @click="switchWeek(-1)">
+            <Pijltje class="pijltje left"/>
+          </button>
+        </div>
+        <div class="month">
+          <span>{{currentMonthName}}</span>
+        </div>
+        <div class="pijl-container">
+          <button class="pijltje-button" @click="switchWeek(1)">
+            <Pijltje class="pijltje"/>
+          </button>
+        </div>
       </div>
-      <div class="month">
-        <span>{{currentMonthName}}</span>
+      <div class="days">
+        <CalendarDay v-for="date in dateOptions"
+                     :date="date"
+                     :selected="isSelectedDate(date)"
+                     :key="date.unix()"
+                     @selectDate="selectDate"
+        />
       </div>
-      <div class="pijl-container">
-        <button class="pijltje-button" @click="switchWeek(1)">
-          <Pijltje class="pijltje"/>
-        </button>
+      <div class="selected-day">
+        <span>{{selectedDayName}}</span>
       </div>
-    </div>
-    <div class="days">
-      <CalendarDay v-for="date in dateOptions"
-                   :date="date"
-                   :selected="isSelectedDate(date)"
-                   :key="date.unix()"
-                   @selectDate="selectDate"
-      />
-    </div>
-    <div class="selected-day">
-      <span>{{selectedDayName}}</span>
     </div>
     <div class="time-slots-container">
       <ul v-if="timeslots.length > 0" class="time-slots-list">
@@ -121,9 +123,10 @@ export default {
 
 <style lang="scss" scoped>
   .agenda-card {
+    max-width: 450px;
+    min-width: 300px;
     height: 500px;
-    border: solid #00000070 1pt;
-    border-radius: 5px;
+    overflow: hidden;
 
     .agenda-header {
       margin-bottom: 10px;
@@ -161,6 +164,8 @@ export default {
 
     .days {
       display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 20px;
     }
 
     .selected-day {
@@ -169,10 +174,10 @@ export default {
       display: flex;
       justify-content: center;
       font-weight: bold;
-      border-bottom: solid #00000070 1px;
     }
 
     .time-slots-container {
+      padding: 0 10px;
 
       .time-slots-list {
         padding: 0;

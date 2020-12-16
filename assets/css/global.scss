@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+body {
+  font-family: 'Andika New Basic', sans-serif;
+  //font-family: 'Varela Round', sans-serif;
+}
+
+.shadow {
+  box-shadow:  24px 24px 70px #e6e8eb,
+  -24px -24px 70px #ffffff;
+
+  &.background {
+    box-shadow:  24px 24px 70px rgb(74, 82, 82),
+    -24px -24px 70px rgb(100, 110, 112);
+  }
+}
+
+.soft-shadow {
+  box-shadow:  5px 5px 11px #eef0f3,
+  -5px -5px 11px #fcfeff;
+
+  &.background {
+    box-shadow:  5px 5px 11px #545d5e,
+    -5px -5px 11px #5a6364;
+  }
+}
+
+.card {
+  background-color: var(--card-color);
+  border-radius: 0.7rem;
+}
+
+body {
+  background-color: var(--background-color);
+}

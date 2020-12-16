@@ -3,14 +3,17 @@
     <div class="winkelmand">
       <div class="top-winkelmand">
         <h2 v-if="treatmentChoices.length !== 1">{{ treatmentChoices.length }} Behandelingen</h2>
-        <h2 v-if="treatmentChoices.length === 1">{{ treatmentChoices.length }} Behandeling</h2>
+        <h2 v-else>{{ treatmentChoices.length }} Behandeling</h2>
       </div>
       <div class="body-winkelmand">
         <Treatments class="gekozen-behandeling" v-for="treatment in treatmentChoices"
+                    :key="treatment.id"
                     :treatment="treatment"
         />
-        <span class="datum-tijd" v-if="dateTime !== null"> {{ timeFormatted }} uur</span>
-        <span class="tijd-datum" v-if="dateTime !== null"> {{ dateTimeFormatted }} </span>
+        <template v-if="dateTime !== null">
+          <span class="datum-tijd"> {{ timeFormatted }} uur</span>
+          <span class="tijd-datum"> {{ dateTimeFormatted }}</span>
+        </template>
       </div>
       <div class="bottom-winkelmand">
         <p class="tijdsduur">0 min</p>

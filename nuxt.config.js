@@ -16,8 +16,8 @@ export default {
   css: [
     '@/assets/css/main.css',
     '@/assets/css/global.scss',
-    'normalize.css',
     '@/assets/css/inputs.scss',
+    'normalize.css',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)

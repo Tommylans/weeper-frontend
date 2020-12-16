@@ -1,10 +1,9 @@
 <template>
   <div class="container-navigatie">
-    <AlgemeneNavigatie/>
-    <div class="container">
-      <div class="winkelwagen-container" v-if="step <= 3">
-        <Winkelwagen/>
-      </div>
+    <div class="container-index">
+<!--      <div class="winkelwagen-container" v-if="step <= 3">-->
+<!--        <Winkelwagen/>-->
+<!--      </div>-->
       <div class="container-options">
         <div class="treatment-container" v-if="step === 0">
           <TreatmentOverview/>
@@ -48,26 +47,27 @@ export default {
 }
 </script>
 
-<style scoped>
-.container {
-  width: 100%;
-  height: auto;
-}
+<style lang="scss" scoped>
+.container-navigatie {
+  background-color: var(--background-color);
 
-.winkelwagen-container {
-  position: fixed;
-  right: 0;
-}
+  .container-index {
+    width: 100%;
+    height: auto;
+    padding: 2vh 1.5vw;
 
-.container-options {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
+    .winkelwagen-container {
+      position: fixed;
+      right: 0;
+    }
 
-.calendar-container {
-  width: 23em;
+    .container-options {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
 
 </style>
