@@ -8,13 +8,8 @@ body {
 }
 
 .shadow {
-  box-shadow:  24px 24px 70px #e6e8eb,
-  -24px -24px 70px #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-  &.background {
-    box-shadow:  24px 24px 70px rgb(74, 82, 82),
-    -24px -24px 70px rgb(100, 110, 112);
-  }
 }
 
 .soft-shadow {
@@ -33,5 +28,9 @@ body {
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: #F4F1DE;
+}
+
+.button {
+  background-color: #E69575;
 }

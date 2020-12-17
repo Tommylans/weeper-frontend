@@ -16,7 +16,7 @@
           <span class="tijd-datum"> {{ dateTimeFormatted }}</span>
         </template>
       </div>
-      <div class="bottom-winkelmand">
+      <div class="bottom-winkelmand button">
         <button class="next-page" @click="changeStep" :disabled="isDisabled">Volgende stap</button>
       </div>
     </div>
@@ -115,7 +115,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #E69575;
   border-radius: 0 0 .7rem .7rem;
 }
 

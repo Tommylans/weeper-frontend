@@ -25,7 +25,7 @@
 
         </div>
 
-        <div class="behandeling-right">
+        <div class="behandeling-right button">
           <button class="toevoegen" @click="addToWinkelwagen(treatment)">
             Toevoegen
           </button>
@@ -125,7 +125,6 @@ export default {
   height: inherit;
   justify-content: center;
   align-items: center;
-  background: #E69575;
   border-radius: 0 0.7em 0.7em 0;
 }
 

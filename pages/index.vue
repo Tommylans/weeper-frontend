@@ -49,8 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-navigatie {
-  background-color: var(--background-color);
+
 
   .container-index {
     width: 100%;
@@ -69,6 +68,5 @@ export default {
       justify-content: center;
     }
   }
-}
 
 </style>
