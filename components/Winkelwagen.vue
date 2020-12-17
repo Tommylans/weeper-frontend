@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-    <div class="winkelmand">
-      <div class="top-winkelmand">
+  <div class="winkelmandcontainer">
+    <div class="winkelmand card shadow background">
+      <div class="top-winkelmand card soft-shadow">
         <h2 v-if="treatmentChoices.length !== 1">{{ treatmentChoices.length }} Behandelingen</h2>
         <h2 v-else>{{ treatmentChoices.length }} Behandeling</h2>
       </div>
@@ -11,13 +11,13 @@
                     :treatment="treatment"
         />
         <template v-if="dateTime !== null">
+          <font-awesome-icon :icon="['fas','minus-square']" class="minus-icon"/>
           <span class="datum-tijd"> {{ timeFormatted }} uur</span>
           <span class="tijd-datum"> {{ dateTimeFormatted }}</span>
         </template>
       </div>
       <div class="bottom-winkelmand">
-        <p class="tijdsduur">0 min</p>
-        <button class="next-page" @click="changeStep" :disabled="isDisabled">Ga door</button>
+        <button class="next-page" @click="changeStep" :disabled="isDisabled">Volgende stap</button>
       </div>
     </div>
   </div>
@@ -72,41 +72,37 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@200;300&family=Quicksand:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300;400&display=swap');
-
-:root {
-  --text-one: 'Montserrat', sans-serif;
-  --text-two: 'Poppins', sans-serif;
-  --text-three: 'Quicksand', sans-serif;
-  --text-four: 'Lato', sans-serif;
-  --text-five: 'Roboto', sans-serif;
+.winkelmandcontainer{
+  height:100vh;
+  width:21em;
+  display:flex;
+  align-items: center;
 }
 
 .winkelmand {
-  height: auto;
+  height: 95vh;
   width: 20em;
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 0;
-  background: #F4F6F6;
+  overflow: hidden;
 }
 
 .top-winkelmand {
   width: 100%;
-  height: auto;
-  color: var(--primary-color);
-  padding: 0.5em;
-  font-family: var(--text-one);
+  height: 20vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color:#4E5050;
 }
 
 .body-winkelmand {
-  height: auto;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   padding: 0.5em;
-  background: #F4F6F6;
 }
 
 .datum-tijd {
@@ -115,39 +111,31 @@ export default {
 
 .bottom-winkelmand {
   width: 100%;
-  height: auto;
+  height: 10vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding-left: 0.5em;
-  background: var(--primary-color);
-  color: #F4F6F6;
-}
-
-.bottom-winkelmand .tijdsduur {
-  font-family: var(--text-two);
+  background: #E69575;
+  border-radius: 0 0 .7rem .7rem;
 }
 
 .bottom-winkelmand .next-page {
   text-decoration: none;
-  color: #F4F6F6;
-  border: none;
-  height: 2em;
-  width: 35%;
-  font-family: var(--text-two);
-  background: var(--secondary-color);
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  height:100%;
   align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  font-weight: 500;
+  border: none;
+  display: flex;
+  background: none;
 }
 
 .next-page:disabled {
-  background: #EAEDED;
-  color: #A3A3A3;
 }
 
 .bottom-winkelmand .next-page:hover {
-  border: 1px solid var(--primary-color);
   cursor: pointer;
 }
 

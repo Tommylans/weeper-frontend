@@ -1,9 +1,10 @@
 <template>
   <div class="container-navigatie">
+    <!--<AlgemeneNavigatie/>-->
     <div class="container-index">
-<!--      <div class="winkelwagen-container" v-if="step <= 3">-->
-<!--        <Winkelwagen/>-->
-<!--      </div>-->
+      <div class="winkelwagen-container" v-if="step <= 3">
+        <Winkelwagen/>
+      </div>
       <div class="container-options">
         <div class="treatment-container" v-if="step === 0">
           <TreatmentOverview/>

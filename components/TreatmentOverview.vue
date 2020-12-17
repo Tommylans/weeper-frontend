@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="top-behandeling">
+  <div class="containerbehandelingen card shadow background">
+    <div class="top-behandeling card soft-shadow">
       <h2 class="titel-behandeling">Kies uw behandeling</h2>
     </div>
 
@@ -15,6 +15,8 @@
             <div class="behandeling-prijs">
               <p>€{{ treatment.price }},-</p>
             </div>
+
+            <span>&nbsp; - &nbsp;</span>
 
             <div class="behandeling-tijd">
               <p>{{ treatment.duration }} min</p>
@@ -57,80 +59,86 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@200;300&family=Quicksand:wght@300;400;500&display=swap%27');
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300;400&display=swap%27');
-
-:root {
-  --text-one: 'Montserrat', sans-serif;
-  --text-two: 'Poppins', sans-serif;
-  --text-three: 'Quicksand', sans-serif;
-  --text-four: 'Lato', sans-serif;
-  --text-five: 'Roboto', sans-serif;
+.containerbehandelingen{
+  overflow: hidden;
 }
 
 .top-behandeling {
-  height: auto;
-  background: var(--primary-color);
-  width: 50em;
-  padding: 0.5em;
+  height: 10vh;
+  width: 30em;
+  padding: 0.7em;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .top-behandeling .titel-behandeling {
   font-size: 1.5em;
-  font-family: var(--text-one);
 }
 
 .body-behandeling {
-  width: 50em;
+  width: 30em;
   height: auto;
   display: flex;
   flex-direction: column;
-  background: #F4F6F6;
+  padding: 0.5em;
 }
 
 .container-behandeling {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0.5em;
-  border-bottom: var(--secondary-color) 1px solid;
+  margin-bottom:0.5em;
+  border-radius: .7em;
+  background:#00000010;
+}
+
+.container-behandeling:hover{
 }
 
 .behandeling-left {
   display: flex;
   flex-direction: column;
-
+  padding: 0.5em;
 }
 
 .behandeling-left .naam-behandeling {
-  font-family: var(--text-five);
   font-weight: 400;
 }
 
 .behandeling-left .left-bottom {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .behandeling-left .left-bottom p {
-  font-family: var(--text-five);
   font-weight: 300;
+}
+
+.behandeling-left .left-bottom span{
+  font-weight: 500;
 }
 
 .behandeling-right {
   display: flex;
+  height: inherit;
+  justify-content: center;
   align-items: center;
+  background: #E69575;
+  border-radius: 0 0.7em 0.7em 0;
 }
 
 .behandeling-right .toevoegen {
+  text-decoration: none;
+  width: 100%;
+  height:100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
   border: none;
-  height: 90%;
-  font-family: var(--text-two);
-  color: white;
-  background: var(--secondary-color);
+  display: flex;
+  background: none;
 }
 
 .toevoegen:hover {
