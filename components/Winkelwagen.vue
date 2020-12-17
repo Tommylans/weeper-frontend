@@ -1,6 +1,6 @@
 <template>
   <div class="winkelmandcontainer">
-    <div class="winkelmand card shadow background">
+    <div class="winkelmand card shadow">
       <div class="top-winkelmand card soft-shadow">
         <h2 v-if="treatmentChoices.length !== 1">{{ treatmentChoices.length }} Behandelingen</h2>
         <h2 v-else>{{ treatmentChoices.length }} Behandeling</h2>

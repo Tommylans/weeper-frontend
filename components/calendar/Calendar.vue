@@ -1,5 +1,5 @@
 <template>
-  <div class="agenda-card card shadow background">
+  <div class="agenda-card card shadow">
     <div class="card soft-shadow">
       <div class="agenda-header">
         <div class="pijl-container">
