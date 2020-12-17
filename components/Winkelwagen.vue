@@ -1,5 +1,5 @@
 <template>
-  <div class="winkelmandcontainer">
+  <div class="winkelwagen-container">
     <div class="winkelmand card shadow">
       <div class="top-winkelmand card soft-shadow titels">
         <h2 v-if="treatmentChoices.length !== 1">{{ treatmentChoices.length }} Behandelingen</h2>
@@ -74,13 +74,12 @@ export default {
 <style scoped>
 
 .winkelmand {
-  height: 95vh;
-  width: 20em;
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 0;
   overflow: hidden;
+  height: 100%;
 }
 
 .top-winkelmand {
@@ -92,7 +91,7 @@ export default {
 }
 
 .body-winkelmand {
-  height: 80vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 0.5em;

@@ -2,7 +2,8 @@ export const state = () => ({
   step: 0,
   treatmentChoices: [],
   dateTime: null,
-  contact: {}
+  contact: {},
+  winkelwagenOpened: true
 })
 
 /*

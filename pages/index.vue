@@ -2,7 +2,7 @@
   <div class="container-navigatie">
     <!--<AlgemeneNavigatie/>-->
     <div class="container-index">
-      <div class="winkelwagen-container" v-if="step <= 3">
+      <div class="winkelwagen-container" v-if="step <= 3 && winkelwagenOpened">
         <Winkelwagen/>
       </div>
       <div class="container-options">
@@ -37,6 +37,9 @@ export default {
   computed: {
     step() {
       return this.$store.state.winkelwagen.step
+    },
+    winkelwagenOpened() {
+      return this.$store.state.winkelwagen.winkelwagenOpened
     }
   },
   methods: {
@@ -49,16 +52,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "assets/css/include-media";
 
-
+.container-navigatie {
   .container-index {
     width: 100%;
     height: 100vh;
-    padding: 2vh 1.5vw;
 
     .winkelwagen-container {
       position: fixed;
-      right: 1vw;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      height: 100%;
+      padding: 10px;
+
+      @include media('<=tablet') {
+        left: 0;
+      }
+
+      @include media('>tablet') {
+        width: 22vw;
+        min-width: 20rem;
+        max-width: 25rem;
+      }
     }
 
     .container-options {
@@ -68,5 +86,6 @@ export default {
       align-items: flex-end;
     }
   }
+}
 
 </style>

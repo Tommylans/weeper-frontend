@@ -8,13 +8,13 @@ body {
 }
 
 .shadow {
-  box-shadow:  24px 24px 70px rgb(0, 0, 0, 0.3),
-  -24px -24px 70px rgb(0, 0, 0, 0.1);
+  box-shadow:  24px 24px 70px rgba(0, 0, 0, 0.17),
+  -24px -24px 70px rgba(0, 0, 0, 0.1);
 }
 
 .soft-shadow {
-  box-shadow:  5px 5px 11px rgb(0, 0, 0, 0.12),
-  -5px -5px 11px rgb(0, 0, 0, 0.1);
+  box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.12),
+  -5px -5px 11px rgba(0, 0, 0, 0.1);
 }
 
 .card {
