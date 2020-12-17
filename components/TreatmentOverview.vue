@@ -1,6 +1,6 @@
 <template>
   <div class="containerbehandelingen card shadow">
-    <div class="top-behandeling card soft-shadow">
+    <div class="top-behandeling card soft-shadow titels">
       <h2 class="titel-behandeling">Kies uw behandeling</h2>
     </div>
 
@@ -74,6 +74,7 @@ export default {
 
 .top-behandeling .titel-behandeling {
   font-size: 1.5em;
+  color:#4E5050;
 }
 
 .body-behandeling {

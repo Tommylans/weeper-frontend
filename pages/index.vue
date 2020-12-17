@@ -53,19 +53,19 @@ export default {
 
   .container-index {
     width: 100%;
-    height: auto;
+    height: 100vh;
     padding: 2vh 1.5vw;
 
     .winkelwagen-container {
       position: fixed;
-      right: 0;
+      right: 1vw;
     }
 
     .container-options {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: flex;
-      justify-content: center;
+      align-items: flex-end;
     }
   }
 
