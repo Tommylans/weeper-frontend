@@ -1,5 +1,5 @@
 <template>
-  <div class="containerbehandelingen card shadow background">
+  <div class="containerbehandelingen card shadow">
     <div class="top-behandeling card soft-shadow">
       <h2 class="titel-behandeling">Kies uw behandeling</h2>
     </div>
