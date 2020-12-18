@@ -123,7 +123,6 @@ export default {
 
 <style lang="scss" scoped>
   .agenda-card {
-    max-width: 450px;
     min-width: 300px;
     height: 500px;
     overflow: hidden;

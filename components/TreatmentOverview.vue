@@ -51,6 +51,25 @@ export default {
         {price: 15, duration: 45, name: 'Knippen - Wassen - Drogen'},
         {price: 45, duration: 15, name: 'Knippen - Wassen - Drogen'},
         {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
+        {price: 30, duration: 30, name: 'Knippen - Wassen - Drodgen'},
         {price: 100, duration: 80, name: 'Knippen - Wassen - Drogen'},
       ]
     }
@@ -61,12 +80,13 @@ export default {
 <style scoped>
 .containerbehandelingen{
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
 }
 
 .top-behandeling {
-  height: 10vh;
-  width: 30em;
-  padding: 0.7em;
+  padding: 1.5rem 0.7rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -78,20 +98,20 @@ export default {
 }
 
 .body-behandeling {
-  width: 30em;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
+  padding: 0.8rem 0.7rem 0;
+  overflow-y: scroll;
 }
 
 .container-behandeling {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom:0.5em;
+  margin-bottom: 0.5em;
   border-radius: .7em;
-  background:#00000010;
+  background: #00000010;
 }
 
 .container-behandeling:hover{
@@ -117,7 +137,7 @@ export default {
   font-weight: 300;
 }
 
-.behandeling-left .left-bottom span{
+.behandeling-left .left-bottom span {
   font-weight: 500;
 }
 

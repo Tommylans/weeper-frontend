@@ -2,8 +2,8 @@
   <div class="container-navigatie">
     <!--<AlgemeneNavigatie/>-->
     <div class="container-index">
-      <div class="winkelwagen-container" v-if="step <= 3 && winkelwagenOpened">
-        <Winkelwagen/>
+      <div class="bestel-container">
+        <BestelNavigation/>
       </div>
       <div class="container-options">
         <div class="treatment-container" v-if="step === 0">
@@ -12,12 +12,15 @@
         <div class="calendar-container" v-if="step === 2">
           <Calendar @selectDateTimeslot="selectDateTimeslot"/>
         </div>
-        <div class="email-container" v-if="step === 3">
-          <EmailVak/>
+        <div class="contact-container" v-if="step === 3">
+          <Contact/>
         </div>
         <div class="appointment-container" v-if="step === 4">
           <AppointmentConfirm/>
         </div>
+      </div>
+      <div class="winkelwagen-container" v-if="step <= 3 && winkelwagenOpened">
+        <Winkelwagen/>
       </div>
     </div>
   </div>
@@ -28,12 +31,15 @@
 import Winkelwagen from "@/components/Winkelwagen";
 import AppointmentConfirm from "@/components/AppointmentConfirm";
 import TreatmentOverview from "@/components/TreatmentOverview";
-import EmailVak from "@/components/EmailVak";
+import Contact from "@/components/Contact";
 import Calendar from "@/components/calendar/Calendar";
 import AlgemeneNavigatie from "@/components/AlgemeneNavigatie";
+import BestelNavigation from "@/components/BestelNavigation";
 
 export default {
-  components: {AlgemeneNavigatie, Calendar, EmailVak, TreatmentOverview, AppointmentConfirm, Winkelwagen},
+  components: {
+    BestelNavigation, AlgemeneNavigatie, Calendar, Contact, TreatmentOverview, AppointmentConfirm, Winkelwagen
+  },
   computed: {
     step() {
       return this.$store.state.winkelwagen.step
@@ -55,35 +61,97 @@ export default {
 @import "assets/css/include-media";
 
 .container-navigatie {
+  min-height: 100vh;
   .container-index {
     width: 100%;
-    height: 100vh;
+    min-height: 100%;
 
-    .winkelwagen-container {
-      position: fixed;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      z-index: 1;
-      height: 100%;
-      padding: 10px;
+    @include media('>tablet') {
+      display: grid;
 
-      @include media('<=tablet') {
-        left: 0;
-      }
+      grid-template-columns: 75% auto;
 
-      @include media('>tablet') {
-        width: 22vw;
-        min-width: 20rem;
-        max-width: 25rem;
-      }
+      grid-template-rows: auto;
+
+      grid-template-areas:
+        "bestel winkelwagen"
+        "options winkelwagen";
+    }
+
+    .bestel-container {
+      grid-area: bestel;
     }
 
     .container-options {
+      grid-area: options;
+
       width: 100%;
       height: 100%;
       display: flex;
-      align-items: flex-end;
+      justify-content: center;
+      align-items: center;
+
+      .treatment-container {
+        width: 65%;
+        max-height: 80vh;
+
+        @include media('<=1500px') {
+          width: 85%;
+        }
+
+        @include media('<=tablet') {
+          width: 100%;
+        }
+      }
+
+      .calendar-container {
+        width: 30%;
+        min-width: 320px;
+        max-height: 80vh;
+
+        @include media('<=1500px') {
+          width: 60%;
+        }
+
+        @include media('<=tablet') {
+          width: 100%;
+        }
+      }
+
+      .contact-container {
+        width: 50%;
+        min-width: 320px;
+        max-height: 80vh;
+
+        @include media('<=1500px') {
+          width: 70%;
+        }
+
+        @include media('<=tablet') {
+          width: 100%;
+        }
+      }
+    }
+
+    .winkelwagen-container {
+      grid-area: winkelwagen;
+      height: 100%;
+      width: 100%;
+
+      padding: 0.5rem;
+
+      @include media('<=tablet') {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      @include media('>tablet') {
+        min-width: 20rem;
+        max-width: 25rem;
+      }
     }
   }
 }

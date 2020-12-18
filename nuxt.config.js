@@ -14,6 +14,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/icons/style.css',
     '@/assets/css/main.css',
     '@/assets/css/global.scss',
     '@/assets/css/inputs.scss',

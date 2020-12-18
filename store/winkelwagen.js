@@ -3,7 +3,7 @@ export const state = () => ({
   treatmentChoices: [],
   dateTime: null,
   contact: {},
-  winkelwagenOpened: true
+  winkelwagenOpened: false
 })
 
 /*
@@ -28,5 +28,8 @@ export const mutations = {
   },
   setStep(state, step) {
     state.step = step
+  },
+  toggleWinkelwagen(state) {
+    state.winkelwagenOpened = !state.winkelwagenOpened;
   }
 }

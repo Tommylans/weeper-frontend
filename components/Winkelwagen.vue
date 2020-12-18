@@ -71,7 +71,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "assets/css/include-media";
 
 .winkelmand {
   display: flex;
@@ -108,6 +109,10 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 0 0 .7rem .7rem;
+
+  @include media('<=tablet') {
+    display: none;
+  }
 }
 
 .bottom-winkelmand .next-page {
