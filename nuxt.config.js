@@ -63,5 +63,9 @@ export default {
       solid: true,
       brands: true,
     }
+  },
+  server: {
+    host:'0.0.0.0'
   }
+
 }
