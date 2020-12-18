@@ -93,7 +93,7 @@ export default {
 
       .treatment-container {
         width: 65%;
-        max-height: 80vh;
+        max-height: 70vh;
 
         @include media('<=1500px') {
           width: 85%;
@@ -107,7 +107,7 @@ export default {
       .calendar-container {
         width: 30%;
         min-width: 320px;
-        max-height: 80vh;
+        max-height: 70vh;
 
         @include media('<=1500px') {
           width: 60%;
@@ -121,7 +121,7 @@ export default {
       .contact-container {
         width: 50%;
         min-width: 320px;
-        max-height: 80vh;
+        max-height: 70vh;
 
         @include media('<=1500px') {
           width: 70%;

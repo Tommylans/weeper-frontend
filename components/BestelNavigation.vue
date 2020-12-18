@@ -6,6 +6,10 @@
     <div class="clickable-icon card shadow" @click="cartClick" @keyup.enter="cartClick" tabindex="0" aria-label="Winkelwagen openen">
       <span class="icon-cart"/>
     </div>
+
+    <div class="page-title">
+      <span class="title">Kapsalon Kapper</span>
+    </div>
   </div>
 </template>
 
@@ -40,6 +44,13 @@ export default {
 
     .icon-hamburger {
       font-size: 0.7rem;
+    }
+  }
+
+  .page-title {
+    .title{
+      font-size: 2.5em;
+      font-weight:500;
     }
   }
 }
