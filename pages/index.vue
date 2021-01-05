@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     selectDateTimeslot(datetime) {
-      console.log(datetime);
       this.$store.commit('winkelwagen/setDateTime', datetime)
     }
   }

@@ -3,6 +3,8 @@
     <FormulateForm
       class="form-container"
       v-model="contactDetails"
+      :keep-model-data="true"
+      :key="'contact'"
     >
       <h2 class="form-title">Hoe kunnen wij u bereiken?</h2>
       <div class="name-inputs">
