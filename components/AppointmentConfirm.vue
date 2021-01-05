@@ -11,6 +11,7 @@
     <div class="appointment-details">
       <div class="chosen-treatments">
         <Treatments v-for="treatment in treatmentChoices"
+                    :key="treatment.id"
                     :treatment="treatment"
         />
       </div>
