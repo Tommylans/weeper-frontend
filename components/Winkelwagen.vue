@@ -8,7 +8,7 @@
           <h2 v-else>{{ treatmentChoices.length }} Behandeling</h2>
         </div>
 
-        <div class="behandelingen-vak" v-if="treatmentChoices.length >= 1">
+        <div class="behandelingen-vak">
           <div class="behandelingen-lijst ">
             <Treatments class="gekozen-behandeling" v-for="treatment in treatmentChoices"
                         :key="treatment.id"
@@ -129,6 +129,11 @@ export default {
         .behandelingen-lijst {
           display: flex;
           flex-direction: column;
+
+          .gekozen-behandeling {
+            display: flex;
+            align-items: center;
+          }
         }
       }
     }
