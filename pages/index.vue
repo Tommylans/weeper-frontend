@@ -1,4 +1,5 @@
 <template>
+  <!--
   <div class="container-navigatie">
     <div class="container-index">
       <div class="left-container">
@@ -31,6 +32,11 @@
         <Winkelwagen/>
       </div>
     </div>
+  </div>
+  -->
+  <div>
+    <KapperNavigatieV1/>
+    <ModulesOverview/>
   </div>
 </template>
 

@@ -1,48 +1,35 @@
 <template>
   <div class="container">
     <div id="content-mobile">
-      <div class="bovensteBalk">
-        <nav class="plaatje">
-          <a href="//"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 100px; height: 90px"></a>
+      <div class="bovensteBalkMobile card soft-shadow titels">
+        <nav class="plaatjeMobile">
+          <a href="//"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 75px; height: 67.5px"></a>
         </nav>
-        <nav class="Uitloggen">
-          <a href="//" class="title">Uitloggen</a>
-        </nav>
-      </div>
-      <div class="ondersteBalk">
         <nav class="Kapsalon">
           <a href="//" class="title">Kapsalon Kapper</a>
         </nav>
         <div class="dropdown">
-          <button class="dropbtn">Menu dropdown</button>
-          <div class="dropdown-content">
+          <button class="dropbtn" style="float:right"><span class="icon-hamburger"/></button>
+          <div class="dropdown-content titels">
             <a href="#">Agenda</a>
             <a href="#">Behandeling</a>
             <a href="#">Medewerkers</a>
             <a href="#">Account</a>
+            <a href="#">Uitloggen</a>
           </div>
         </div>
       </div>
     </div>
     <div id="content-desktop">
-      <div class="bovensteBalk">
-        <nav class="plaatje">
-          <a href="//"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 100px; height: 90px"></a>
-        </nav>
-        <nav class="Uitloggen">
+      <div class="bovensteBalk card soft-shadow titels">
+        <nav class="linkjes">
+          <a href="//" class="title">Kapsalon Kapper</a>
+          <a href="//" class="linkje">Agenda</a>
+          <a href="//" class="linkje">Behandeling</a>
+          <a href="//" class="linkje">Medewerkers</a>
+          <a href="//" class="linkje">Account</a>
           <a href="//" class="title">Uitloggen</a>
         </nav>
-      </div>
-      <div class="ondersteBalk">
-        <nav class="Kapsalon">
-          <a href="//" class="title">Kapsalon Kapper</a>
-        </nav>
-        <div class="linkjes">
-          <a class="linkje">Agenda</a>
-          <a class="linkje">Behandeling</a>
-          <a class="linkje">Medewerkers</a>
-          <a class="linkje">Account</a>
-        </div>
       </div>
     </div>
   </div>
@@ -50,7 +37,7 @@
 
 <script>
 export default {
-  name: "KapperNavigatieV1"
+  name: "KapperNavigatieV2"
 }
 </script>
 
@@ -66,55 +53,53 @@ export default {
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
   display: block;
   font-weight: 600;
   font-size: 20px;
-  color: black;
+  color: #393e46;
   letter-spacing: 1px;
+  margin-right: 5vw;
 }
 
-.bovensteBalk{
+.bovensteBalk {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100vw;
-  border-bottom: 1px solid black;
-  background: var(--primary-color);
+  align-items: center;
 }
 
-.ondersteBalk{
+.Logo-Titel {
+  display: flex;
+  width: 25vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 5vw;
+}
+
+.bovensteBalkMobile {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100vw;
-  border-bottom: 1px solid black;
-  height: 80px;
+  align-items: center;
 }
 
 .linkje {
   font-weight: 600;
-  font-size: 20px;
-  color: black;
+  font-size: 18px;
+  color: #393e46;
   word-spacing: 5px;
-  padding-bottom: 15px;
   text-underline: none;
-  width: 40%;
-  margin-right: 30px;
 }
 
 .linkjes {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 90px;
 }
 
 a:link {
@@ -125,40 +110,32 @@ a:visited {
   text-decoration: none;
 }
 
-
-.plaatje {
+.plaatjeMobile {
   display: flex;
-  width: 10%;
-  margin-left: 5%;
 }
 
 .Kapsalon {
   display: flex;
-  margin-left: 6%;
   align-items: center;
 }
 
-.Uitloggen {
-  display: flex;
-  margin-right: 6%;
-  align-items: center;
-}
 .dropbtn {
-  background-color: #4CAF50;
-  color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
+  background-color: white;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 20vw;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
+  right: 0;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -187,6 +164,10 @@ a:visited {
   #content-mobile {display: flex;}
 
 }
-#content-desktop {width: 100vw; flex-direction: column}
-#content-mobile {width: 100vw; justify-content: center; flex-direction: column}
+#content-desktop {width: 100vw; flex-direction: column; justify-content: center}
+#content-mobile {width: 100vw; justify-content: center; flex-direction: row}
+
+.card {
+  border-radius: 0 0 0.7rem 0.7rem;
+}
 </style>

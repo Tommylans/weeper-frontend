@@ -1,16 +1,16 @@
 <template>
   <div class="container">
     <div id="content-mobile">
-      <div class="bovensteBalk">
-        <nav class="plaatje">
+      <div class="bovensteBalkMobile card soft-shadow titels">
+        <nav class="plaatjeMobile">
           <a href="//"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 75px; height: 67.5px"></a>
         </nav>
         <nav class="Kapsalon">
           <a href="//" class="title">Kapsalon Kapper</a>
         </nav>
         <div class="dropdown">
-          <button class="dropbtn" style="float:right">123</button>
-          <div class="dropdown-content">
+          <button class="dropbtn" style="float:right"><span class="icon-hamburger"/></button>
+          <div class="dropdown-content titels">
             <a href="#">Agenda</a>
             <a href="#">Behandeling</a>
             <a href="#">Medewerkers</a>
@@ -22,10 +22,8 @@
     </div>
     <div id="content-desktop">
       <div class="bovensteBalk">
-        <nav class="plaatje">
+        <nav class="linkjes ">
           <a href="//"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 100px; height: 90px"></a>
-        </nav>
-        <nav class="linkjes">
           <a href="//" class="title">Kapsalon Kapper</a>
           <a href="//" class="linkje">Agenda</a>
           <a href="//" class="linkje">Behandeling</a>
@@ -56,29 +54,36 @@ export default {
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
   display: block;
   font-weight: 600;
   font-size: 20px;
   color: #393e46;
   letter-spacing: 1px;
+  padding: 20px 2vw 20px 2vw;
 }
 
-.bovensteBalk{
+.bovensteBalk {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100vw;
-  border-bottom: 1px solid black;
+  align-items: center;
+}
+
+.Logo-Titel {
+  display: flex;
+  width: 25vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 5vw;
+}
+
+.bovensteBalkMobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
   align-items: center;
 }
 
@@ -88,15 +93,14 @@ export default {
   color: #393e46;
   word-spacing: 5px;
   text-underline: none;
-  margin-right: 25px;
+  padding: 30px 2vw 30px 2vw;
 }
 
 .linkjes {
   display: flex;
   align-items: center;
-  margin-right: 5vw;
   justify-content: space-between;
-  width: 80vw;
+  width: 100vw;
 }
 
 a:link {
@@ -107,11 +111,8 @@ a:visited {
   text-decoration: none;
 }
 
-
-.plaatje {
+.plaatjeMobile {
   display: flex;
-  width: 10%;
-  margin-left: 5%;
 }
 
 .Kapsalon {
@@ -120,16 +121,16 @@ a:visited {
 }
 
 .dropbtn {
-  background-color: black;
-  color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
+  background-color: white;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 20vw;
 }
 
 .dropdown-content {
@@ -164,6 +165,6 @@ a:visited {
   #content-mobile {display: flex;}
 
 }
-#content-desktop {width: 100vw; flex-direction: column}
-#content-mobile {width: 100vw; justify-content: center; flex-direction: column}
+#content-desktop {width: 100vw; flex-direction: column; justify-content: center}
+#content-mobile {width: 100vw; justify-content: center; flex-direction: row}
 </style>
