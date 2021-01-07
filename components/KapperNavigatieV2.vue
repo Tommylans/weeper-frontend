@@ -23,7 +23,6 @@
     <div id="content-desktop">
       <div class="bovensteBalk">
         <nav class="linkjes ">
-          <a href="//"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 100px; height: 90px"></a>
           <a href="//" class="title">Kapsalon Kapper</a>
           <a href="//" class="linkje">Agenda</a>
           <a href="//" class="linkje">Behandeling</a>
@@ -45,7 +44,7 @@ export default {
 <style scoped>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 15vh;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -101,6 +100,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 100vw;
+  height: 90px;
 }
 
 a:link {

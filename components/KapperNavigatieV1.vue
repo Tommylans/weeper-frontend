@@ -2,9 +2,6 @@
   <div class="container">
     <div id="content-mobile">
       <div class="bovensteBalkMobile card soft-shadow titels">
-        <nav class="plaatjeMobile">
-          <a href="//"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 75px; height: 67.5px"></a>
-        </nav>
         <nav class="Kapsalon">
           <a href="//" class="title">Kapsalon Kapper</a>
         </nav>
@@ -28,7 +25,7 @@
           <a href="//" class="linkje">Behandeling</a>
           <a href="//" class="linkje">Medewerkers</a>
           <a href="//" class="linkje">Account</a>
-          <a href="//" class="title">Uitloggen</a>
+          <a href="//" class="linkje">Uitloggen</a>
         </nav>
       </div>
     </div>
@@ -43,46 +40,27 @@ export default {
 
 <style scoped>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: center;
-  flex-direction: column;
+  padding: 1.5em 2em 0;
 }
 
 .title {
-  display: block;
   font-weight: 600;
   font-size: 20px;
   color: #393e46;
   letter-spacing: 1px;
-  margin-right: 5vw;
 }
 
 .bovensteBalk {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   align-items: center;
-}
-
-.Logo-Titel {
-  display: flex;
-  width: 25vw;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: 5vw;
 }
 
 .bovensteBalkMobile {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   align-items: center;
 }
 
@@ -98,8 +76,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
-  height: 90px;
+  width: 100%;
+  padding: 1em;
 }
 
 a:link {
@@ -108,10 +86,6 @@ a:link {
 
 a:visited {
   text-decoration: none;
-}
-
-.plaatjeMobile {
-  display: flex;
 }
 
 .Kapsalon {
@@ -124,6 +98,7 @@ a:visited {
   font-size: 16px;
   border: none;
   background-color: white;
+  border-radius: 0.7em;
 }
 
 .dropdown {
@@ -164,10 +139,7 @@ a:visited {
   #content-mobile {display: flex;}
 
 }
-#content-desktop {width: 100vw; flex-direction: column; justify-content: center}
-#content-mobile {width: 100vw; justify-content: center; flex-direction: row}
+#content-desktop {width: 100%; flex-direction: column; justify-content: center}
+#content-mobile {width: 100%; justify-content: center; flex-direction: row}
 
-.card {
-  border-radius: 0 0 0.7rem 0.7rem;
-}
 </style>

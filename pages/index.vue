@@ -50,6 +50,7 @@ import Calendar from "@/components/calendar/Calendar";
 import AlgemeneNavigatie from "@/components/AlgemeneNavigatie";
 import BestelNavigation from "@/components/Navigatie/BestelNavigation";
 import LoadingCheckIcon from "@/components/icons/LoadingCheckIcon";
+import KapperNavigatieV1 from "@/components/KapperNavigatieV1";
 
 export default {
   components: {
