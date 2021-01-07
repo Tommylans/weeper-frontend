@@ -1,5 +1,4 @@
 <template>
-  <!--
   <div class="container-navigatie">
     <div class="container-index">
       <div class="left-container">
@@ -33,11 +32,6 @@
       </div>
     </div>
   </div>
-  -->
-  <div>
-    <KapperNavigatieV1/>
-    <ModulesOverview/>
-  </div>
 </template>
 
 <script>
@@ -50,7 +44,6 @@ import Calendar from "@/components/calendar/Calendar";
 import AlgemeneNavigatie from "@/components/AlgemeneNavigatie";
 import BestelNavigation from "@/components/Navigatie/BestelNavigation";
 import LoadingCheckIcon from "@/components/icons/LoadingCheckIcon";
-import KapperNavigatieV1 from "@/components/KapperNavigatieV1";
 
 export default {
   components: {
