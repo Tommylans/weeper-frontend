@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     deletefromWinkelwagen() {
-      //this.$store.commit('winkelwagen/removeTreatmentChoice');
+      this.$store.commit('winkelwagen/removeTreatmentChoice');
     }
   }
 }
