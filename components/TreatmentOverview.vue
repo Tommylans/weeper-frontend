@@ -41,8 +41,7 @@ export default {
   name: "TreatmentOverview",
   methods: {
     addToWinkelwagen(treatment) {
-      this.$store.commit('winkelwagen/addTreatmentChoice', treatment);
-    }
+      this.$store.commit('winkelwagen/addTreatmentChoice', treatment);}
   },
   props: {
     treatments: { //dummy
