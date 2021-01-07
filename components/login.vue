@@ -1,5 +1,5 @@
 <template>
-  <div class="contentContainer">
+  <div class="contentContainer" >
     <div id="content-desktop">
       <div class="grijsVlak">
         <img src="@/assets/grijs-vlak.png" alt="plaatje" style="width: 100%; height: 100%";>
