@@ -10,6 +10,7 @@
 
   .formulate-input-element {
     // Global field-level wrapper styles
+
   }
 
   .formulate-input-help {
@@ -35,6 +36,9 @@
   &[data-classification='text'] {
     input {
       // Style all text-like input elements
+      width: 300px;
+      height: 50px;
+      border-radius: 10px;
     }
   }
 
@@ -62,11 +66,13 @@
   &[data-classification='button'] {
     button {
       // Style button inputs
-      display: flex;
-      font-weight: 600;
-      font-size: 15px;
-      color: #526488;
-      word-spacing: 5px;
+      width: 300px;
+      margin-top: 20px;
+      background-color: darkgray;
+      color: white;
+      border: none;
+      height: 50px;
+      border-radius: 10px;
     }
   }
 
@@ -76,6 +82,7 @@
   &[data-classification='select'] {
     select {
       // Style select lists
+
     }
   }
 
@@ -86,8 +93,10 @@
   &[data-classification='box'] {
     .formulate-input-element {
       // Box input (checkbox and radio) wrapper (might want flex here)
+
       input {
         // Style box element itself
+
       }
     }
   }

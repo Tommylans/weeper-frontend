@@ -14,10 +14,11 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/icons/style.css',
     '@/assets/css/main.css',
     '@/assets/css/global.scss',
-    'normalize.css',
     '@/assets/css/inputs.scss',
+    'normalize.css',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -63,5 +64,9 @@ export default {
       solid: true,
       brands: true,
     }
+  },
+  server: {
+    host:'0.0.0.0'
   }
+
 }

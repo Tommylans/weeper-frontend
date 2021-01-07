@@ -2,9 +2,15 @@ export const state = () => ({
   step: 0,
   treatmentChoices: [],
   dateTime: null,
-  contact: {}
+  contact: {},
+  winkelwagenOpened: true,
+  navigationOpened: false
 })
 
+/*const mq = window.matchMedia( "(min-width: 860px)" );
+if (mq.matches) {
+} else {
+}
 /*
   stap 0: Behandelingen kiezen
   stap 1: Kapper kiezen
@@ -27,5 +33,11 @@ export const mutations = {
   },
   setStep(state, step) {
     state.step = step
+  },
+  toggleWinkelwagen(state) {
+    state.winkelwagenOpened = !state.winkelwagenOpened;
+  },
+  toggleNavigation(state) {
+    state.navigationOpened = !state.navigationOpened;
   }
 }

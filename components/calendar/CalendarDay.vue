@@ -1,10 +1,10 @@
 <template>
-  <div class="date-block">
-    <span class="day">{{shortDayName}}</span>
-    <button class="day-number"
-            :class="{today: isToday, selected: selected, 'no-time-slots': isPast}"
-            @click="click">{{dayNumber}}</button>
-  </div>
+    <div class="date-block day-number" tabindex="0"
+            :class="{selected: selected, 'no-time-slots': isPast}"
+            @click="click" @keyup.enter="click">
+      <span class="day">{{shortDayName}}</span>
+      <span>{{dayNumber}}</span>
+    </div>
 </template>
 
 <script>
@@ -39,20 +39,16 @@ export default {
 
 <style lang="scss" scoped>
   .date-block {
-    padding: 10px;
+    padding: 10px 7px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
-    .day {
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: center;
-    }
+    border-radius: 0.7rem;
+    text-align: center;
 
-    .day-number {
-      border-radius: 100%;
-      height: 2em;
-      width: 2em;
+    &.day-number {
+      width: 3rem;
       border: none;
       background-color: transparent;
 
@@ -61,10 +57,6 @@ export default {
       &:hover:not([disabled]):not(.selected) {
         background-color: var(--primary-color-hover);
         cursor: pointer;
-      }
-
-      &.today {
-        border: #cacaca solid 1px;
       }
 
       &.selected {
