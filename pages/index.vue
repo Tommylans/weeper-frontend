@@ -8,6 +8,7 @@
       </div>
       <div class="container-options">
         <div class="page-title">
+          <div class="terug-knop card button" v-if="step > 0 && step < 4" @click="vorigeStap">Vorige stap</div>
           <span class="title">Kapsalon Kapper</span>
         </div>
         <div class="treatment-container" v-if="step === 0">
@@ -23,11 +24,11 @@
           <AppointmentConfirm/>
         </div>
         <div class="bottom-container-options">
-          <button class="next-page button" @click="changeStep">Volgende stap</button>
+          <button class="next-page button" @click="changeStep" v-if="step <= 3">Volgende stap</button>
         </div>
       </div>
       </div>
-      <div class="winkelwagen-container" v-if="step <= 3 && winkelwagenOpened">
+      <div class="winkelwagen-container" v-if="step <= 4" :class="{'hide-winkelwagen':!winkelwagenOpened}">
         <Winkelwagen/>
       </div>
     </div>
@@ -44,12 +45,19 @@ import Calendar from "@/components/calendar/Calendar";
 import AlgemeneNavigatie from "@/components/AlgemeneNavigatie";
 import BestelNavigation from "@/components/Navigatie/BestelNavigation";
 import LoadingCheckIcon from "@/components/icons/LoadingCheckIcon";
+import Swal from "sweetalert2";
 
 export default {
   components: {
     BestelNavigation, AlgemeneNavigatie, Calendar, Contact, TreatmentOverview, AppointmentConfirm, Winkelwagen
   },
   computed: {
+    treatmentChoices() {
+      return this.$store.state.winkelwagen.treatmentChoices;
+    },
+    dateTime() {
+      return this.$store.state.winkelwagen.dateTime;
+    },
     step: {
       get: function () {
         return this.$store.state.winkelwagen.step;
@@ -70,7 +78,26 @@ export default {
       this.$store.commit('winkelwagen/setDateTime', datetime)
     },
     changeStep() {
+      if(this.treatmentChoices.length === 0){
+        Swal.fire({
+          title: 'Error!',
+          text: 'Voeg een behandeling toe om door de gaan naar de volgende stap.',
+          icon: 'error'
+        });
+        return
+      }
+      if(this.dateTime === null && this.step === 2) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Kies een datum en tijd om door te gaan naar de volgende stap.',
+          icon: 'error'
+        });
+        return
+      }
       this.step += 1;
+    },
+    vorigeStap() {
+      this.step -= 1;
     }
   }
 }
@@ -117,16 +144,35 @@ export default {
       align-items: center;
 
       @include media('<=tablet') {
-        padding: 0.5rem;
+        padding: 0.5rem 1.5rem;
       }
 
       .page-title {
         width: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         padding-bottom: 1em;
+
+        .terug-knop {
+          height: 3rem;
+          width: 7em;
+          padding: 0.3em 0.6em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 500;
+          cursor: pointer;
+
+          &:hover{
+            background: #c97757;
+          }
+        }
 
         .title{
           font-size: 2em;
           font-weight:500;
+          padding-top: 1em;
         }
 
         @include media('<=tablet') {
@@ -216,11 +262,17 @@ export default {
         right: 0;
         bottom: 0;
         padding: 0.5rem;
+
+        &.hide-winkelwagen {
+          display: none;
+        }
       }
 
       @include media('>tablet') {
         min-width: 20rem;
         max-width: 25rem;
+
+
       }
     }
   }

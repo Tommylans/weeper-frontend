@@ -4,8 +4,9 @@
 
       <div class="body-winkelmand topcard">
         <div class="top-winkelmand card soft-shadow titels">
-          <h2 v-if="treatmentChoices.length !== 1">{{ treatmentChoices.length }} Behandelingen</h2>
-          <h2 v-else>{{ treatmentChoices.length }} Behandeling</h2>
+          <h2 v-if="treatmentChoices.length !== 1 && step <= 3">{{ treatmentChoices.length }} Behandelingen</h2>
+          <h2 v-else v-if="treatmentChoices.length === 1 && step <= 3">{{ treatmentChoices.length }} Behandeling</h2>
+          <h2 v-if="step === 4">Uw afspraak</h2>
         </div>
 
         <div class="behandelingen-vak">
@@ -20,9 +21,6 @@
       </div>
       <div class="date-body-winkelmand">
         <div v-if="dateTime !== null" class="inner-body-winkelmand">
-          <button class="delete-button" @click="deletefromWinkelwagen">
-            <DeleteIcon class="delete-icon"/>
-          </button>
           <div class="date-container">
             <span class="datum-tijd"> {{ timeFormatted }} uur</span>
             <span class="tijd-datum"> {{ dateTimeFormatted }}</span>
@@ -30,7 +28,9 @@
         </div>
       </div>
       <div class="bottom-winkelmand button">
-        <button class="next-page" @click="changeStep" :disabled="isDisabled">Volgende stap</button>
+        <button class="next-page" @click="changeStep" v-if="step <= 2">Volgende stap</button>
+        <button class="next-page" @click="changeStep" v-if="step === 3">Bevestig afspraak</button>
+        <button class="next-page" v-if="step === 4">Nog een afspraak maken</button>
         <button class="close-winkelmand" @click="closeWinkelmand">Sluiten</button>
       </div>
     </div>
@@ -39,6 +39,7 @@
 
 <script>
 import Treatments from "@/components/Treatments";
+import Swal from 'sweetalert2';
 
 export default {
   name: "Winkelwagen",
@@ -48,6 +49,9 @@ export default {
       return this.$store.state.winkelwagen.treatmentChoices;
     },
     contact() {
+      return this.$store.state.winkelwagen.contact;
+    },
+    contactDetails() {
       return this.$store.state.winkelwagen.contact;
     },
     dateTime() {
@@ -73,12 +77,33 @@ export default {
         this.$store.commit('winkelwagen/setStep', value)
       }
     },
-    isDisabled() {
-      return false;
-    }
   },
   methods: {
     changeStep() {
+      if(this.treatmentChoices.length === 0) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Voeg een behandeling toe om door de gaan naar de volgende stap.',
+          icon: 'error'
+        });
+        return
+      }
+      if(this.dateTime === null && this.step === 2) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Kies een datum en tijd om door te gaan naar de volgende stap.',
+          icon: 'error'
+        });
+        return
+      }
+      if(this.contactDetails === null && this.step === 3) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Vul al uw gegevens in om door te gaan.',
+          icon: 'error'
+        });
+        return
+      }
       this.step += 1;
     },
     closeWinkelmand() {
@@ -121,7 +146,7 @@ export default {
 
       .behandelingen-vak {
         height: 75%;
-        padding: 0.5em;
+        padding: 0 0 0 1.5em;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -147,12 +172,13 @@ export default {
         display: flex;
         flex-direction: row;
         font-size: 1.2em;
-        padding: 0.5em;
+        padding: 0.5em 3em;
       }
 
       .date-container {
         display: flex;
         flex-direction: column;
+        font-weight: 500;
       }
     }
 
@@ -185,6 +211,7 @@ export default {
 
         &:hover {
           cursor: pointer;
+          background: #c97757;
         }
       }
     }

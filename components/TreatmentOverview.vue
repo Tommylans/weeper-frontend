@@ -36,12 +36,27 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
 
 export default {
   name: "TreatmentOverview",
   methods: {
     addToWinkelwagen(treatment) {
-      this.$store.commit('winkelwagen/addTreatmentChoice', treatment);}
+      if(this.treatmentChoices.length >= 6) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'U kan niet meer behandelingen toevoegen',
+          icon: 'error',
+        });
+        return
+      }
+      this.$store.commit('winkelwagen/addTreatmentChoice', treatment);
+    }
+  },
+  computed: {
+    treatmentChoices() {
+      return this.$store.state.winkelwagen.treatmentChoices;
+    },
   },
   props: {
     treatments: { //dummy
@@ -113,9 +128,6 @@ export default {
   background: #00000010;
 }
 
-.container-behandeling:hover{
-}
-
 .behandeling-left {
   display: flex;
   flex-direction: column;
@@ -148,6 +160,10 @@ export default {
   border-radius: 0 0.7em 0.7em 0;
 }
 
+.behandeling-right:hover {
+  background: #c97757;
+}
+
 .behandeling-right .toevoegen {
   text-decoration: none;
   width: 100%;
@@ -157,12 +173,8 @@ export default {
   font-weight: 500;
   border: none;
   display: flex;
+  cursor: pointer;
   background: none;
 }
-
-.toevoegen:hover {
-  cursor: pointer;
-}
-
 
 </style>

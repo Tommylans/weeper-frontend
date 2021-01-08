@@ -1,13 +1,14 @@
 <template>
   <div class="confirm-container">
+    <div class="check-container">
+      <CheckIcon class="check-icon"/>
+    </div>
     <div class="confirmation-text">
       <span class="first-line">Bedankt voor het maken van uw afspraak!</span>
       <span class="second-line">Zodra de afspraak bij ons is doorgekomen, krijgt u een bevestiging per mail.</span>
     </div>
-    <div class="check-container">
-      <LoadingCheckIcon/>
-    </div>
-    <div class="appointment-details card shadow">
+
+    <!--<div class="appointment-details card shadow">
       <div class="top-appointment-details card soft-shadow titels">
         <h2 class="titel-details">Uw afspraak</h2>
       </div>
@@ -23,7 +24,7 @@
           <span class="datum-tijd" v-if="dateTime !== null"> {{ timeFormatted }} uur</span>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -57,7 +58,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "assets/css/include-media";
 
 .confirm-container {
   width: 100%;
@@ -66,35 +68,54 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-}
+  padding-left: 7%;
 
-.confirmation-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  @include media('<=tablet') {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
 
-.appointment-details {
-}
+  @include media('<=phone') {
+  }
 
-.top-appointment-details {
-  padding: 1.5rem 2rem;
-}
+  .confirmation-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2em;
+  }
 
-.body-appointment-details {
-  padding: 1.5rem 2rem;
-  line-height: 2rem;
-}
+  .check-container {
+    .check-icon {
+      width: 10em;
+      height: 10em;
+    }
+  }
 
-.treatment-appointment-details {
-  margin-bottom: 1em;
-}
+  .appointment-details {
 
-.date-appointment-details {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3rem;
-  font-weight: 500;
+    .top-appointment-details {
+      padding: 1.5rem 2rem;
+    }
+
+    .body-appointment-details {
+      padding: 1.5rem 2rem;
+      line-height: 2rem;
+
+
+      .treatment-appointment-details {
+        margin-bottom: 1em;
+      }
+
+      .date-appointment-details {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.3rem;
+        font-weight: 500;
+      }
+    }
+  }
 }
 
 </style>

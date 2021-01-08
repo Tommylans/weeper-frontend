@@ -40,7 +40,7 @@ export default {
     }
 
     &:hover{
-      background-color: #f2f2f2;
+      background-color: #c97757;
     }
   }
 }
