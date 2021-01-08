@@ -42,7 +42,9 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:8080',
+  },
 
   // DayJS module configuration (https://www.npmjs.com/package/@nuxtjs/dayjs)
   dayjs: {
