@@ -8,7 +8,7 @@
       </div>
       <div class="container-options">
         <div class="page-title">
-          <div class="terug-knop card button" v-if="step > 0 && step < 4" @click="vorigeStap">Vorige stap</div>
+          <button class="terug-knop card button" v-if="step > 0 && step < 4" tabindex="0" @click="vorigeStap">Vorige stap </button>
           <span class="title">Kapsalon Kapper</span>
         </div>
         <div class="treatment-container" v-if="step === 0">
@@ -155,6 +155,7 @@ export default {
         padding-bottom: 1em;
 
         .terug-knop {
+          border: none;
           height: 3rem;
           width: 7em;
           padding: 0.3em 0.6em;

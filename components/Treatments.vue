@@ -1,6 +1,6 @@
 <template>
   <div class="treatments-block">
-    <button class="delete-button" @click="deletefromWinkelwagen" >
+    <button class="delete-button" @click="deletefromWinkelwagen" role=button :aria-label="`verwijder behandeling ${treatment.name}`">
       <DeleteIcon class="delete-icon" v-if="step === 0"/>
       <ListIcon class="list-icon" v-if="step > 0"/>
     </button>
