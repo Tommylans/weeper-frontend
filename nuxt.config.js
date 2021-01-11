@@ -8,7 +8,9 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" },
     ]
   },
 
@@ -42,7 +44,9 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:8080',
+  },
 
   // DayJS module configuration (https://www.npmjs.com/package/@nuxtjs/dayjs)
   dayjs: {

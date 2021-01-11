@@ -5,7 +5,7 @@
       <div class="body-winkelmand topcard">
         <div class="top-winkelmand card soft-shadow titels">
           <h2 v-if="treatmentChoices.length !== 1 && step <= 3">{{ treatmentChoices.length }} Behandelingen</h2>
-          <h2 v-else v-if="treatmentChoices.length === 1 && step <= 3">{{ treatmentChoices.length }} Behandeling</h2>
+          <h2 v-else-if="treatmentChoices.length === 1 && step <= 3">{{ treatmentChoices.length }} Behandeling</h2>
           <h2 v-if="step === 4">Uw afspraak</h2>
         </div>
 
@@ -76,7 +76,7 @@ export default {
     },
   },
   methods: {
-    changeStep() {
+    async changeStep() {
       if(this.treatmentChoices.length === 0) {
         Swal.fire({
           title: 'Error!',
@@ -100,8 +100,18 @@ export default {
           icon: 'error'
         });
         return
+      } else if (this.step === 3) {
+        await this.createAfspraak();
       }
+
       this.step += 1;
+    },
+    async createAfspraak() {
+      return await this.$axios.$post('/appointment/create', {
+        contactDetails: this.contactDetails,
+        dateTime: this.dateTime.dateTime.unix(),
+        treatmentChoices: this.treatmentChoices.map(treatmentChoice => treatmentChoice.id),
+      })
     },
     closeWinkelmand() {
       this.$store.commit('winkelwagen/toggleWinkelwagen')
