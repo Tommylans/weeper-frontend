@@ -2,40 +2,37 @@
   <div class="container-navigatie">
     <div class="container-index">
       <div class="left-container">
-      <div class="bestel-container">
-        <BestelNavigation/>
-        <NavigatieLinks v-if="navigationOpened"/>
-      </div>
-      <div class="container-options">
-        <div class="page-title">
-          <button class="terug-knop card button" v-if="step > 0 && step < 4" tabindex="0" @click="vorigeStap">Vorige stap </button>
-          <span class="title">Kapsalon Kapper</span>
+        <div class="bestel-container">
+          <BestelNavigation/>
+          <NavigatieLinks v-if="navigationOpened"/>
         </div>
         <div class="container-options">
           <div class="page-title">
-            <div class="terug-knop card button" v-if="step > 0 && step < 4" @click="vorigeStap">Vorige stap</div>
+            <button class="terug-knop card button" v-if="step > 0 && step < 4" tabindex="0" @click="vorigeStap">Vorige
+              stap
+            </button>
             <span class="title">Kapsalon Kapper</span>
           </div>
-          <div class="treatment-container" v-if="step === 0">
-            <TreatmentOverview/>
-          </div>
-          <div class="calendar-container" v-if="step === 2">
-            <Calendar class="inner-calendar-container" @selectDateTimeslot="selectDateTimeslot"/>
-          </div>
-          <div class="contact-container" v-if="step === 3">
-            <Contact/>
-          </div>
-          <div class="appointment-container" v-if="step === 4">
-            <AppointmentConfirm/>
-          </div>
-          <div class="bottom-container-options">
-            <button class="next-page button" @click="changeStep" v-if="step <= 3">Volgende stap</button>
+            <div class="treatment-container" v-if="step === 0">
+              <TreatmentOverview/>
+            </div>
+            <div class="calendar-container" v-if="step === 2">
+              <Calendar class="inner-calendar-container" @selectDateTimeslot="selectDateTimeslot"/>
+            </div>
+            <div class="contact-container" v-if="step === 3">
+              <Contact/>
+            </div>
+            <div class="appointment-container" v-if="step === 4">
+              <AppointmentConfirm/>
+            </div>
+            <div class="bottom-container-options">
+              <button class="next-page button" @click="changeStep" v-if="step <= 3">Volgende stap</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="winkelwagen-container" v-if="step <= 4" :class="{'hide-winkelwagen':!winkelwagenOpened}">
-        <Winkelwagen/>
-      </div>
+        <div class="winkelwagen-container" v-if="step <= 4" :class="{'hide-winkelwagen':!winkelwagenOpened}">
+          <Winkelwagen/>
+        </div>
     </div>
   </div>
 </template>
