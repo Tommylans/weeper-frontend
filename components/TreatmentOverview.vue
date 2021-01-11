@@ -1,14 +1,14 @@
 <template>
   <div class="containerbehandelingen card shadow">
     <div class="top-behandeling card soft-shadow titels">
-      <h2 class="titel-behandeling">Kies uw behandeling</h2>
+      <h2 class="titel-behandeling" tabindex="0">Kies uw behandeling</h2>
     </div>
 
     <div class="body-behandeling">
       <div class="container-behandeling" v-for="treatment in treatments">
         <div class="behandeling-left">
           <div class="left-top">
-            <h3 class="naam-behandeling">{{ treatment.name }}</h3>
+            <h3 class="naam-behandeling">{{ treatment.name }} </h3>
           </div>
 
           <div class="left-bottom">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="behandeling-right button">
-          <button class="toevoegen" @click="addToWinkelwagen(treatment)">
+          <button class="toevoegen" @click="addToWinkelwagen(treatment)" role="button" :aria-label="`${treatment.name} € ${treatment.price},- ${treatment.duration} min toevoegen`">
             Toevoegen
           </button>
         </div>

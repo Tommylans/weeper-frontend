@@ -3,15 +3,15 @@
     <div class="card soft-shadow">
       <div class="agenda-header">
         <div class="pijl-container">
-          <button v-show="!isCurrentWeek" class="pijltje-button" @click="switchWeek(-1)">
+          <button v-show="!isCurrentWeek" class="pijltje-button" aria-label="Vorige week" @click="switchWeek(-1)">
             <Pijltje class="pijltje left"/>
           </button>
         </div>
         <div class="month">
-          <span>{{currentMonthName}}</span>
+          <span tabindex="0">{{currentMonthName}}</span>
         </div>
         <div class="pijl-container">
-          <button class="pijltje-button" @click="switchWeek(1)">
+          <button class="pijltje-button" aria-label="Volgende week" @click="switchWeek(1)">
             <Pijltje class="pijltje"/>
           </button>
         </div>
@@ -31,6 +31,8 @@
     <div class="time-slots-container">
       <ul v-if="timeslots.length > 0" class="time-slots-list">
         <TimeSlotItem v-for="timeslot in timeslots"
+                      role="button"
+                      aria-label=""
                       :timeslot="timeslot"
                       :key="timeslot.id"
                       :selected="timeslot === selectedTimeslot"
