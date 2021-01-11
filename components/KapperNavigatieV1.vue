@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div id="content-mobile">
-      <div class="bovensteBalkMobile card soft-shadow titels">
-        <nav class="Kapsalon">
+      <div class="bovenste-balk-mobile card soft-shadow titels">
+        <nav class="kapsalon">
           <a href="//" class="title">Kapsalon Kapper</a>
         </nav>
         <div class="dropdown">
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div id="content-desktop">
-      <div class="bovensteBalk card soft-shadow titels">
+      <div class="bovenste-balk card soft-shadow titels">
         <nav class="linkjes">
           <a href="//" class="title">Kapsalon Kapper</a>
           <a href="//" class="linkje">Agenda</a>
@@ -50,7 +50,7 @@ export default {
   letter-spacing: 1px;
 }
 
-.bovensteBalk {
+.bovenste-balk {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -58,7 +58,7 @@ export default {
 
 }
 
-.bovensteBalkMobile {
+.bovenste-balk-mobile {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -89,7 +89,7 @@ a:visited {
   text-decoration: none;
 }
 
-.Kapsalon {
+.kapsalon {
   display: flex;
   align-items: center;
 }

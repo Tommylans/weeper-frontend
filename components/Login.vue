@@ -1,10 +1,10 @@
 <template>
-  <div class="contentContainer" >
+  <div class="content-container" >
     <div id="content-desktop">
-      <div class="grijsVlak">
+      <div class="grijs-vlak">
         <img src="@/assets/grijs-vlak.png" alt="plaatje" style="width: 100%; height: 100%";>
       </div>
-      <div class="inlogForm">
+      <div class="inlog-form">
         <FormulateForm
           name="login"
           @submit="setSomeErrors"
@@ -16,14 +16,14 @@
             name="email"
             label="Email"
             validation="required|email"
-            class="textVakken"
+            class="text-vakken"
             placeholder="Voorbeeld@example.com"
           />
           <FormulateInput
             name="password"
             label="Wachtwoord"
             validation="required"
-            class="textVakken"
+            class="text-vakken"
             placeholder="Wachtwoord"
             type="password"
           />
@@ -34,14 +34,14 @@
               label="inloggen"
             />
           </div>
-          <nav class="WWVergeten">
-            <a href="//" class="WWVergeten">Wachtwoord vergeten</a>
+          <nav class="wwvergeten">
+            <a href="//" class="wwvergeten">Wachtwoord vergeten</a>
           </nav>
         </FormulateForm>
       </div>
     </div>
     <div id="content-mobile">
-      <div class="inlogForm">
+      <div class="inlog-form">
         <FormulateForm
           name="login"
           @submit="setSomeErrors"
@@ -53,14 +53,14 @@
             name="email"
             label="Email"
             validation="required|email"
-            class="textVakken"
+            class="text-vakken"
             placeholder="Voorbeeld@example.com"
           />
           <FormulateInput
             name="password"
             label="Wachtwoord"
             validation="required"
-            class="textVakken"
+            class="text-vakken"
             placeholder="Wachtwoord"
             type="password"
           />
@@ -71,8 +71,8 @@
               label="inloggen"
             />
           </div>
-          <nav class="WWVergeten">
-            <a href="//" class="WWVergeten">Wachtwoord vergeten</a>
+          <nav class="wwvergeten">
+            <a href="//" class="wwvergeten">Wachtwoord vergeten</a>
           </nav>
         </FormulateForm>
       </div>
@@ -101,7 +101,7 @@ export default {
 </script>
 
 <style scoped>
-.inlogForm::v-deep button {
+.inlog-form::v-deep button {
   padding: 0.5rem 1rem;
   border-radius: 10px;
   margin-top: 20px;
@@ -110,7 +110,7 @@ export default {
   border: none;
 }
 
-.inlogForm::v-deep input {
+.inlog-form::v-deep input {
   padding: 0.5rem 1rem;
   border-radius: 10px;
 }
@@ -128,32 +128,32 @@ export default {
   margin-bottom: 10px;
   justify-content: center;
 }
-.inlogForm {
+.inlog-form {
   display: flex;
   width: 45%;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-.grijsVlak {
+.grijs-vlak {
   display: flex;
   width: 55%;
   height: 100vh;
 }
-.contentContainer {
+.content-container {
   display: flex;
   align-items: center;
   flex-direction: row;
   background-color: white;
   height: 100vh;
 }
-.WWVergeten {
+.wwvergeten {
   border: none;
   background-color: white;
   color: blue;
   text-decoration: none;
 }
-.textVakken {
+.text-vakken {
   margin: 15px 0px 15px 0px;
 }
 #content-desktop {display: flex;}
