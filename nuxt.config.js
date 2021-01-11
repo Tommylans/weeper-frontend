@@ -14,7 +14,7 @@ export default {
     ]
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
+  // Global CSS (https://go.nuxtjs.dev/config-css)s
   css: [
     '@/assets/icons/style.css',
     '@/assets/css/main.css',
@@ -45,7 +45,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://localhost:8080',
+    baseURL: process.env.NODE_ENV === 'production' ? 'http://v.tommylans.nl:8080' : 'http://localhost:8080',
   },
 
   // DayJS module configuration (https://www.npmjs.com/package/@nuxtjs/dayjs)
@@ -62,13 +62,6 @@ export default {
   build: {
   },
 
-  //fontawesome icons
-  fontawesome: {
-    icons: {
-      solid: true,
-      brands: true,
-    }
-  },
   server: {
     host:'0.0.0.0'
   }

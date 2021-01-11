@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="winkelwagen-container" v-if="step <= 4" :class="{'hide-winkelwagen':!winkelwagenOpened}">
-          <Winkelwagen/>
+          <Winkelwagen @changeStep="changeStep"/>
         </div>
     </div>
   </div>
@@ -60,6 +60,9 @@ export default {
     dateTime() {
       return this.$store.state.winkelwagen.dateTime;
     },
+    contact() {
+      return this.$store.state.winkelwagen.contact;
+    },
     step: {
       get: function () {
         return this.$store.state.winkelwagen.step;
@@ -79,16 +82,17 @@ export default {
     selectDateTimeslot(datetime) {
       this.$store.commit('winkelwagen/setDateTime', datetime)
     },
-    changeStep() {
-      if (this.treatmentChoices.length === 0) {
+    async changeStep() {
+      console.log(this)
+      if(this.treatmentChoices.length === 0) {
         Swal.fire({
           title: 'Error!',
-          text: 'Voeg een behandeling toe om door te gaan naar de volgende stap.',
+          text: 'Voeg een behandeling toe om door de gaan naar de volgende stap.',
           icon: 'error'
         });
         return
       }
-      if (this.dateTime === null && this.step === 2) {
+      if(this.dateTime === null && this.step === 2) {
         Swal.fire({
           title: 'Error!',
           text: 'Kies een datum en tijd om door te gaan naar de volgende stap.',
@@ -96,7 +100,25 @@ export default {
         });
         return
       }
+      if(Object.entries(this.contact).length < 4  && this.step === 3) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Vul al uw gegevens in om door te gaan.',
+          icon: 'error'
+        });
+        return
+      } else if (this.step === 3) {
+        await this.createAfspraak();
+      }
+
       this.step += 1;
+    },
+    async createAfspraak() {
+      return await this.$axios.$post('/appointment/create', {
+        contactDetails: this.contact,
+        dateTime: this.dateTime.dateTime.unix(),
+        treatmentChoices: this.treatmentChoices.map(treatmentChoice => treatmentChoice.id),
+      })
     },
     vorigeStap() {
       this.step -= 1;

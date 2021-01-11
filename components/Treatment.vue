@@ -4,7 +4,7 @@
       <DeleteIcon class="delete-icon"/>
     </button>
     <div class="container-list-icon" v-if="step > 0" >
-    <ListIcon class="list-icon"/>
+      <ListIcon class="list-icon"/>
     </div>
 
     <span class="treatment">{{ treatment.name }}</span>
