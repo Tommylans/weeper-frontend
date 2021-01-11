@@ -33,11 +33,7 @@
       </div>
     </div>
   </div>
-  -->
-  <div>
-    <KapperNavigatieV1/>
-    <ModulesOverview/>
-  </div>
+
 </template>
 
 <script>
@@ -51,6 +47,7 @@ import AlgemeneNavigatie from "@/components/AlgemeneNavigatie";
 import BestelNavigation from "@/components/Navigatie/BestelNavigation";
 import LoadingCheckIcon from "@/components/icons/LoadingCheckIcon";
 import KapperNavigatieV1 from "@/components/KapperNavigatieV1";
+import ModulesOverview from "@/components/KapperOverzicht/ModulesOverview";
 
 export default {
   components: {

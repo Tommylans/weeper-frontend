@@ -46,7 +46,7 @@ export default {
 .title {
   font-weight: 600;
   font-size: 20px;
-  color: #393e46;
+  color: black;
   letter-spacing: 1px;
 }
 
@@ -55,6 +55,7 @@ export default {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+
 }
 
 .bovensteBalkMobile {
@@ -67,7 +68,7 @@ export default {
 .linkje {
   font-weight: 600;
   font-size: 18px;
-  color: #393e46;
+  color: black;
   word-spacing: 5px;
   text-underline: none;
 }

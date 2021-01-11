@@ -101,6 +101,10 @@ export default {
 </script>
 
 <style scoped>
+.inlogForm::v-deep input {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
 .actions {
   display: flex;
   margin-bottom: 3px;
