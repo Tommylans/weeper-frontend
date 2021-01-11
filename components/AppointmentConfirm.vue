@@ -8,33 +8,15 @@
       <span class="second-line">Zodra de afspraak bij ons is doorgekomen, krijgt u een bevestiging per mail.</span>
     </div>
 
-    <!--<div class="appointment-details card shadow">
-      <div class="top-appointment-details card soft-shadow titels">
-        <h2 class="titel-details">Uw afspraak</h2>
-      </div>
-      <div class="body-appointment-details">
-        <div class="treatment-appointment-details">
-          <Treatments v-for="treatment in treatmentChoices"
-                      :key="treatment.id"
-                      :treatment="treatment"
-          />
-        </div>
-        <div class="date-appointment-details">
-          <span class="datum-tijd" v-if="dateTime !== null"> {{ dateTimeFormatted }} </span>
-          <span class="datum-tijd" v-if="dateTime !== null"> {{ timeFormatted }} uur</span>
-        </div>
-      </div>
-    </div>-->
   </div>
 </template>
 
 <script>
-import Treatments from "@/components/Treatments";
-import LoadingCheckIcon from "@/components/icons/LoadingCheckIcon";
+import Treatment from "@/components/Treatment";
 
 export default {
   name: "AppointmentConfirm",
-  components: {Treatments},
+  components: {Treatment},
   computed: {
     treatmentChoices() {
       return this.$store.state.winkelwagen.treatmentChoices;
@@ -74,9 +56,6 @@ export default {
     padding-left: 0;
     align-items: center;
     text-align: center;
-  }
-
-  @include media('<=phone') {
   }
 
   .confirmation-text {
