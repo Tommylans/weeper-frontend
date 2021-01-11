@@ -11,7 +11,7 @@
 
         <div class="behandelingen-vak">
           <div class="behandelingen-lijst ">
-            <Treatments class="gekozen-behandeling" v-for="treatment in treatmentChoices"
+            <Treatment class="gekozen-behandeling" v-for="treatment in treatmentChoices"
                         :key="treatment.id"
                         :treatment="treatment"
 
@@ -38,20 +38,17 @@
 </template>
 
 <script>
-import Treatments from "@/components/Treatments";
+import Treatment from "@/components/Treatment";
 import Swal from 'sweetalert2';
 
 export default {
   name: "Winkelwagen",
-  components: {Treatments},
+  components: {Treatment},
   computed: {
     treatmentChoices() {
       return this.$store.state.winkelwagen.treatmentChoices;
     },
     contact() {
-      return this.$store.state.winkelwagen.contact;
-    },
-    contactDetails() {
       return this.$store.state.winkelwagen.contact;
     },
     dateTime() {
@@ -96,7 +93,7 @@ export default {
         });
         return
       }
-      if(this.contactDetails === null && this.step === 3) {
+      if(Object.entries(this.contact).length < 4  && this.step === 3) {
         Swal.fire({
           title: 'Error!',
           text: 'Vul al uw gegevens in om door te gaan.',
@@ -152,7 +149,6 @@ export default {
         justify-content: center;
         align-items: center;
       }
-
 
       .behandelingen-vak {
         height: 75%;
@@ -216,9 +212,6 @@ export default {
           display: none;
         }
 
-        &:disabled {
-        }
-
         &:hover {
           cursor: pointer;
           background: #c97757;
@@ -237,13 +230,10 @@ export default {
       border: none;
       display: flex;
       background: none;
+      cursor: pointer;
 
       @include media('>tablet') {
         display: none;
-      }
-
-      &:hover {
-        cursor: pointer;
       }
     }
   }
