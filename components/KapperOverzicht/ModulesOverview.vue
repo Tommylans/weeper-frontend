@@ -37,7 +37,7 @@ export default {
 @import "assets/css/include-media";
 
 .container {
-  height: 100vh;
+  height: 85vh;
   width: 100%;
   display: flex;
   flex-direction: column;
