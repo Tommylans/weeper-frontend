@@ -101,6 +101,15 @@ export default {
 </script>
 
 <style scoped>
+.inlogForm::v-deep button {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: darkgray;
+  color: white;
+  border: none;
+}
+
 .inlogForm::v-deep input {
   padding: 0.5rem 1rem;
   border-radius: 10px;
