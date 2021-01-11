@@ -2,31 +2,31 @@
   <div class="container-navigatie">
     <div class="container-index">
       <div class="left-container">
-      <div class="bestel-container">
-        <BestelNavigation/>
-        <NavigatieLinks v-if="navigationOpened"/>
-      </div>
-      <div class="container-options">
-        <div class="page-title">
-          <div class="terug-knop card button" v-if="step > 0 && step < 4" @click="vorigeStap">Vorige stap</div>
-          <span class="title">Kapsalon Kapper</span>
+        <div class="bestel-container">
+          <BestelNavigation/>
+          <NavigatieLinks v-if="navigationOpened"/>
         </div>
-        <div class="treatment-container" v-if="step === 0">
-          <TreatmentOverview/>
+        <div class="container-options">
+          <div class="page-title">
+            <div class="terug-knop card button" v-if="step > 0 && step < 4" @click="vorigeStap">Vorige stap</div>
+            <span class="title">Kapsalon Kapper</span>
+          </div>
+          <div class="treatment-container" v-if="step === 0">
+            <TreatmentOverview/>
+          </div>
+          <div class="calendar-container" v-if="step === 2">
+            <Calendar class="inner-calendar-container" @selectDateTimeslot="selectDateTimeslot"/>
+          </div>
+          <div class="contact-container" v-if="step === 3">
+            <Contact/>
+          </div>
+          <div class="appointment-container" v-if="step === 4">
+            <AppointmentConfirm/>
+          </div>
+          <div class="bottom-container-options">
+            <button class="next-page button" @click="changeStep" v-if="step <= 3">Volgende stap</button>
+          </div>
         </div>
-        <div class="calendar-container" v-if="step === 2">
-          <Calendar class="inner-calendar-container" @selectDateTimeslot="selectDateTimeslot"/>
-        </div>
-        <div class="contact-container" v-if="step === 3">
-          <Contact/>
-        </div>
-        <div class="appointment-container" v-if="step === 4">
-          <AppointmentConfirm/>
-        </div>
-        <div class="bottom-container-options">
-          <button class="next-page button" @click="changeStep" v-if="step <= 3">Volgende stap</button>
-        </div>
-      </div>
       </div>
       <div class="winkelwagen-container" v-if="step <= 4" :class="{'hide-winkelwagen':!winkelwagenOpened}">
         <Winkelwagen/>
@@ -78,15 +78,15 @@ export default {
       this.$store.commit('winkelwagen/setDateTime', datetime)
     },
     changeStep() {
-      if(this.treatmentChoices.length === 0){
+      if (this.treatmentChoices.length === 0) {
         Swal.fire({
           title: 'Error!',
-          text: 'Voeg een behandeling toe om door de gaan naar de volgende stap.',
+          text: 'Voeg een behandeling toe om door te gaan naar de volgende stap.',
           icon: 'error'
         });
         return
       }
-      if(this.dateTime === null && this.step === 2) {
+      if (this.dateTime === null && this.step === 2) {
         Swal.fire({
           title: 'Error!',
           text: 'Kies een datum en tijd om door te gaan naar de volgende stap.',
@@ -123,132 +123,132 @@ export default {
         width: 100%;
       }
 
-    .bestel-container {
-      width: 100%;
-      height: 10vh;
-      display: flex;
-      flex-direction: row;
+      .bestel-container {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
 
-      @include media ('<=tablet') {
-        flex-direction: column;
-        height:100%;
-      }
-    }
-
-    .container-options {
-      width: 100%;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      @include media('<=tablet') {
-        padding: 0.5rem 1.5rem;
+        @include media('<=tablet') {
+          flex-direction: column;
+          height: 100%;
+        }
       }
 
-      .page-title {
-        width: 85%;
+      .container-options {
+        width: 100%;
+        height: 90vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding-bottom: 1em;
+        justify-content: center;
+        align-items: center;
 
-        .terug-knop {
-          height: 3rem;
-          width: 7em;
-          padding: 0.3em 0.6em;
+        @include media('<=tablet') {
+          padding: 0.5rem 1.5rem;
+        }
+
+        .page-title {
+          width: 85%;
           display: flex;
-          justify-content: center;
-          align-items: center;
-          font-weight: 500;
-          cursor: pointer;
+          flex-direction: column;
+          justify-content: space-between;
+          padding-bottom: 1em;
 
-          &:hover{
-            background: #c97757;
+          .terug-knop {
+            height: 3rem;
+            width: 7em;
+            padding: 0.3em 0.6em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            cursor: pointer;
+
+            &:hover {
+              background: #c97757;
+            }
           }
-        }
 
-        .title{
-          font-size: 2em;
-          font-weight:500;
-          padding-top: 1em;
-        }
-
-        @include media('<=tablet') {
-          width: 100%;
-        }
-      }
-
-      .treatment-container {
-        width: 85%;
-        max-height: 70vh;
-
-        @include media('<=tablet') {
-          width: 100%;
-        }
-      }
-
-      .calendar-container {
-        width: 85%;
-        min-width: 320px;
-        max-height: 70vh;
-
-        @include media('<=tablet') {
-          width: 100%;
-        }
-
-        .inner-calendar-container {
-          max-width: 30em;
+          .title {
+            font-size: 2em;
+            font-weight: 500;
+            padding-top: 1em;
+          }
 
           @include media('<=tablet') {
-            max-width: 100%;
+            width: 100%;
           }
         }
-      }
 
-      .contact-container {
-        width: 85%;
-        min-width: 320px;
-        max-height: 70vh;
+        .treatment-container {
+          width: 85%;
+          max-height: 70vh;
 
-        @include media('<=tablet') {
-          width: 100%;
-        }
-      }
-
-      .bottom-container-options {
-        width: 85%;
-        margin-top: 1em;
-        display: flex;
-        justify-content: flex-end;
-
-        @include media('<=tablet') {
-          width: 100%;
+          @include media('<=tablet') {
+            width: 100%;
+          }
         }
 
-        @include media('>tablet') {
-          display: none;
+        .calendar-container {
+          width: 85%;
+          min-width: 320px;
+          max-height: 70vh;
+
+          @include media('<=tablet') {
+            width: 100%;
+          }
+
+          .inner-calendar-container {
+            max-width: 30em;
+
+            @include media('<=tablet') {
+              max-width: 100%;
+            }
+          }
         }
 
-        .next-page {
-          text-decoration: none;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.1em;
-          font-weight: 500;
-          border: none;
+        .contact-container {
+          width: 85%;
+          min-width: 320px;
+          max-height: 70vh;
+
+          @include media('<=tablet') {
+            width: 100%;
+          }
+        }
+
+        .bottom-container-options {
+          width: 85%;
+          margin-top: 1em;
           display: flex;
-          padding: 0.7rem;
-          border-radius: 0.7rem;
+          justify-content: flex-end;
+
+          @include media('<=tablet') {
+            width: 100%;
+          }
+
+          @include media('>tablet') {
+            display: none;
+          }
+
+          .next-page {
+            text-decoration: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            font-weight: 500;
+            border: none;
+            display: flex;
+            padding: 0.7rem;
+            border-radius: 0.7rem;
+          }
+        }
+
+        .appointment-container {
+          width: 100%;
+          height: 100%;
         }
       }
-
-      .appointment-container {
-        width: 100%;
-        height: 100%;
-      }
-    }
     }
 
     .winkelwagen-container {
@@ -271,8 +271,6 @@ export default {
       @include media('>tablet') {
         min-width: 20rem;
         max-width: 25rem;
-
-
       }
     }
   }
