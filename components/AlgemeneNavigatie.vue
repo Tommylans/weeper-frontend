@@ -2,11 +2,11 @@
   <div class="container">
     <div class="bovensteBalk">
       <nav class="plaatje">
-        <a href="//"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 100px; height: 90px"> </a>
+        <a href="#"><img src="@/assets/Logo-placeholder.JPG" alt="logo" style="width: 100px; height: 90px"> </a>
       </nav>
       <nav class="linkjes">
-        <a href="//" class="linkje">Voor de salons</a>
-        <a href="//" class="linkje">Zoek jouw salon</a>
+        <a href="#" class="linkje">Voor de salons</a>
+        <a href="#" class="linkje">Zoek jouw salon</a>
       </nav>
     </div>
     <div class="ondersteBalk">
@@ -17,7 +17,7 @@
         </button>
       </div>
       <nav class="Kapsalon">
-        <a href="//" class="title">Kapsalon Kapper</a>
+        <a href="#" class="title">Kapsalon Kapper</a>
       </nav>
     </div>
   </div>
@@ -25,14 +25,12 @@
 
 <script>
 export default {
-  name: "Algemene navigatie"
+  name: "AlgemeneNavigatie"
 }
 </script>
 
 <style scoped>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -41,16 +39,15 @@ export default {
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Quicksand',
+  'Source Sans Pro',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  'Helvetica Neue',
+  Arial,
+  sans-serif;
   display: block;
   font-weight: 600;
   font-size: 20px;
@@ -58,7 +55,7 @@ export default {
   letter-spacing: 1px;
 }
 
-.bovensteBalk{
+.bovensteBalk {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -67,7 +64,7 @@ export default {
   background: var(--primary-color);
 }
 
-.ondersteBalk{
+.ondersteBalk {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -100,6 +97,7 @@ a:link {
 a:visited {
   text-decoration: none;
 }
+
 .linkjes {
   display: flex;
   min-width: 20%;

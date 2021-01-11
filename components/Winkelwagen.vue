@@ -1,36 +1,54 @@
 <template>
-  <div class="container">
-    <div class="winkelmand">
-      <div class="top-winkelmand">
-        <h2 v-if="treatmentChoices.length !== 1">{{treatmentChoices.length}} Behandelingen</h2>
-        <h2 v-if="treatmentChoices.length === 1">{{treatmentChoices.length}} Behandeling</h2>
+  <div class="winkelwagen-container">
+    <div class="winkelmand card shadow">
+
+      <div class="body-winkelmand topcard">
+        <div class="top-winkelmand card soft-shadow titels">
+          <h2 v-if="treatmentChoices.length !== 1 && step <= 3">{{ treatmentChoices.length }} Behandelingen</h2>
+          <h2 v-else v-if="treatmentChoices.length === 1 && step <= 3">{{ treatmentChoices.length }} Behandeling</h2>
+          <h2 v-if="step === 4">Uw afspraak</h2>
+        </div>
+
+        <div class="behandelingen-vak">
+          <div class="behandelingen-lijst ">
+            <Treatment class="gekozen-behandeling" v-for="treatment in treatmentChoices"
+                        :key="treatment.id"
+                        :treatment="treatment"
+
+            />
+          </div>
+        </div>
       </div>
-      <div class="body-winkelmand">
-        <Treatments class="gekozen-behandeling" v-for="treatment in treatmentChoices"
-                    :treatment="treatment"
-        />
-        <span class="datum-tijd" v-if="dateTime !== null"> {{ timeFormatted }} uur</span>
-        <span class="tijd-datum" v-if="dateTime !== null"> {{ dateTimeFormatted }} </span>
+      <div class="date-body-winkelmand">
+        <div v-if="dateTime !== null" class="inner-body-winkelmand">
+          <div class="date-container">
+            <span class="datum-tijd"> {{ timeFormatted }} uur</span>
+            <span class="tijd-datum"> {{ dateTimeFormatted }}</span>
+          </div>
+        </div>
       </div>
-      <div class="bottom-winkelmand">
-        <p class="tijdsduur">0 min</p>
-        <button class="next-page" @click="changeStep" :disabled="isDisabled">Ga door</button>
+      <div class="bottom-winkelmand button">
+        <button class="next-page" @click="changeStep" v-if="step <= 2">Volgende stap</button>
+        <button class="next-page" @click="changeStep" v-if="step === 3">Bevestig afspraak</button>
+        <button class="next-page" v-if="step === 4">Nog een afspraak maken</button>
+        <button class="close-winkelmand" @click="closeWinkelmand">Sluiten</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Treatments from "@/components/Treatments";
+import Treatment from "@/components/Treatment";
+import Swal from 'sweetalert2';
 
 export default {
   name: "Winkelwagen",
-  components: {Treatments},
+  components: {Treatment},
   computed: {
     treatmentChoices() {
       return this.$store.state.winkelwagen.treatmentChoices;
     },
-    contact(){
+    contact() {
       return this.$store.state.winkelwagen.contact;
     },
     dateTime() {
@@ -56,94 +74,158 @@ export default {
         this.$store.commit('winkelwagen/setStep', value)
       }
     },
-    isDisabled() {
-      return false;
-    }
   },
   methods: {
     changeStep() {
+      if(this.treatmentChoices.length === 0) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Voeg een behandeling toe om door de gaan naar de volgende stap.',
+          icon: 'error'
+        });
+        return
+      }
+      if(this.dateTime === null && this.step === 2) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Kies een datum en tijd om door te gaan naar de volgende stap.',
+          icon: 'error'
+        });
+        return
+      }
+      if(Object.entries(this.contact).length < 4  && this.step === 3) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Vul al uw gegevens in om door te gaan.',
+          icon: 'error'
+        });
+        return
+      }
       this.step += 1;
+    },
+    closeWinkelmand() {
+      this.$store.commit('winkelwagen/toggleWinkelwagen')
     }
   }
 }
 </script>
 
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@200;300&family=Quicksand:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300;400&display=swap');
-:root{
-  --text-one:'Montserrat', sans-serif;
-  --text-two:'Poppins', sans-serif;
-  --text-three:'Quicksand', sans-serif;
-  --text-four: 'Lato', sans-serif;
-  --text-five:'Roboto', sans-serif;
-}
+<style lang="scss" scoped>
+@import "assets/css/include-media";
 
-.winkelmand {
-  height: auto;
-  width: 20em;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding: 0;
-  background: #F4F6F6;
-}
-
-.top-winkelmand{
-  width:100%;
-  height:auto;
-  color:var(--primary-color);
+.winkelwagen-container {
   padding: 0.5em;
-  font-family: var(--text-one);
-}
 
-.body-winkelmand{
-  height:auto;
-  display:flex;
-  flex-direction: column;
-  padding:0.5em;
-  background: #F4F6F6;
-}
+  .winkelmand {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
 
-.datum-tijd{
-  margin-top: 0.5em;
-}
+    .body-winkelmand {
+      min-height: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 1.2em;
 
-.bottom-winkelmand{
-  width:100%;
-  height:auto;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 0.5em;
-  background: var(--primary-color);
-  color: #F4F6F6;
-}
+      .top-winkelmand {
+        width: 100%;
+        height: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-.bottom-winkelmand .tijdsduur{
-  font-family: var(--text-two);
-}
+      .behandelingen-vak {
+        height: 75%;
+        padding: 0 0 0 1.5em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
-.bottom-winkelmand .next-page{
-  text-decoration: none;
-  color:#F4F6F6;
-  border:none;
-  height:2em;
-  width:35%;
-  font-family:var(--text-two);
-  background:var(--secondary-color);
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
+        .behandelingen-lijst {
+          display: flex;
+          flex-direction: column;
 
-.next-page:disabled{
-  background: #EAEDED;
-  color: #A3A3A3;
-}
+          .gekozen-behandeling {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
 
-.bottom-winkelmand .next-page:hover{
-  border: 1px solid var(--primary-color);
-}
+    .date-body-winkelmand {
+      height: 28%;
+      display: flex;
+      align-items: center;
 
+      .inner-body-winkelmand {
+        display: flex;
+        flex-direction: row;
+        font-size: 1.2em;
+        padding: 0.5em 3em;
+      }
+
+      .date-container {
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+      }
+    }
+
+    .bottom-winkelmand {
+      width: 100%;
+      height: 12%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 0 .7rem .7rem;
+
+      .next-page {
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1em;
+        font-weight: 500;
+        border: none;
+        display: flex;
+        background: none;
+
+        @include media('<=tablet') {
+          display: none;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background: #c97757;
+        }
+      }
+    }
+
+    .close-winkelmand {
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1em;
+      font-weight: 500;
+      border: none;
+      display: flex;
+      background: none;
+      cursor: pointer;
+
+      @include media('>tablet') {
+        display: none;
+      }
+    }
+  }
+}
 </style>
