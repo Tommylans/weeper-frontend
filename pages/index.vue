@@ -11,6 +11,7 @@
             <button class="terug-knop card button" v-if="step > 0 && step < 3" tabindex="0" @click="vorigeStap">Vorige
               stap
             </button>
+            <span class="title">Kapsalon Kapper</span>
           </div>
             <div class="treatment-container" v-if="step === 0">
               <TreatmentOverview/>
