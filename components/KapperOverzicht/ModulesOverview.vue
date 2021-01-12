@@ -7,7 +7,7 @@
         <span class="firstline">Agenda</span>
         <span class="secondline">Overzicht van al uw reserveringen</span>
       </NuxtLink>
-      <NuxtLink to="/" class="module card soft-shadow">
+      <NuxtLink to="/kapper/behandelingen" class="module card soft-shadow">
         <MapIcon class="module-icon"/>
         <span class="firstline">Behandelingen</span>
         <span class="secondline">Beheer de behandelingen die de klant ziet</span>
@@ -27,9 +27,19 @@
 </template>
 
 <script>
+import ClockIcon from "../icons/ClockIcon";
+import MapIcon from "../icons/MapIcon";
+import ProfileIcon from "../icons/ProfileIcon";
+import KeyIcon from "../icons/KeyIcon";
 
 export default {
-  name: "ModulesOverview"
+  name: "ModulesOverview",
+  components: {
+    ClockIcon,
+    MapIcon,
+    ProfileIcon,
+    KeyIcon
+  }
 }
 </script>
 
@@ -96,7 +106,7 @@ export default {
       min-width: 100%;
     }
 
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
 
