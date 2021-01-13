@@ -10,9 +10,6 @@
           <div class="dropdown-content titels">
             <a href="#">Agenda</a>
             <a href="#">Behandeling</a>
-            <a href="#">Medewerkers</a>
-            <a href="#">Account</a>
-            <a href="#">Uitloggen</a>
           </div>
         </div>
       </div>
@@ -21,11 +18,10 @@
       <div class="bovenste-balk card soft-shadow titels">
         <nav class="linkjes">
           <a href="//" class="title">Kapsalon Kapper</a>
+        </nav>
+        <nav class="linkjes">
           <a href="//" class="linkje">Agenda</a>
           <a href="//" class="linkje">Behandeling</a>
-          <a href="//" class="linkje">Medewerkers</a>
-          <a href="//" class="linkje">Account</a>
-          <a href="//" class="linkje">Uitloggen</a>
         </nav>
       </div>
     </div>
@@ -55,7 +51,6 @@ export default {
   justify-content: space-between;
   width: 100%;
   align-items: center;
-
 }
 
 .bovenste-balk-mobile {
@@ -71,13 +66,13 @@ export default {
   color: black;
   word-spacing: 5px;
   text-underline: none;
+  margin: 0 3em;
 }
 
 .linkjes {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   padding: 1em;
 }
 

@@ -12,16 +12,6 @@
         <span class="firstline">Behandelingen</span>
         <span class="secondline">Beheer de behandelingen die de klant ziet</span>
       </NuxtLink>
-      <NuxtLink to="/" class="module card soft-shadow">
-        <ProfileIcon class="module-icon"/>
-        <span class="firstline">Medewerkers</span>
-        <span class="secondline">Overzicht van al de medewerkers</span>
-      </NuxtLink>
-      <NuxtLink to="/" class="module card soft-shadow">
-        <KeyIcon class="module-icon"/>
-        <span class="firstline">Account</span>
-        <span class="secondline">Pas de instellingen van uw account aan</span>
-      </NuxtLink>
     </div>
   </div>
 </template>
@@ -62,7 +52,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: space-between;
+    align-content: center;
 
     @include media('<=tablet') {
       width: 90%;
@@ -76,7 +66,7 @@ export default {
   .module {
     width: 45%;
     min-width: 18em;
-    height: 45%;
+    height: 55%;
     border-radius: 0.7rem;
     padding: 1em;
     display: flex;
