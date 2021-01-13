@@ -4,9 +4,9 @@
 
       <div class="body-winkelmand topcard">
         <div class="top-winkelmand card soft-shadow titels">
-          <h2 v-if="treatmentChoices.length !== 1 && step <= 3">{{ treatmentChoices.length }} Behandelingen</h2>
-          <h2 v-else-if="treatmentChoices.length === 1 && step <= 3">{{ treatmentChoices.length }} Behandeling</h2>
-          <h2 v-if="step === 4">Uw afspraak</h2>
+          <h2 v-if="treatmentChoices.length !== 1 && step <= 2">{{ treatmentChoices.length }} Behandelingen</h2>
+          <h2 v-else-if="treatmentChoices.length === 1 && step <= 2">{{ treatmentChoices.length }} Behandeling</h2>
+          <h2 v-if="step === 3">Uw afspraak</h2>
         </div>
 
         <div class="behandelingen-vak">
@@ -28,9 +28,9 @@
         </div>
       </div>
       <div class="bottom-winkelmand button">
-        <button class="next-page" @click="changeStep" v-if="step <= 2">Volgende stap</button>
-        <button class="next-page" @click="changeStep" v-if="step === 3">Bevestig afspraak</button>
-        <button class="next-page" v-if="step === 4">Nog een afspraak maken</button>
+        <button class="next-page" @click="changeStep" v-if="step <= 1">Volgende stap</button>
+        <button class="next-page" @click="changeStep" v-if="step === 2">Bevestig afspraak</button>
+        <button class="next-page" v-if="step === 3">Nog een afspraak maken</button>
         <button class="close-winkelmand" @click="closeWinkelmand">Sluiten</button>
       </div>
     </div>
