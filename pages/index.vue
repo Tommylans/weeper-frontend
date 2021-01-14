@@ -8,7 +8,7 @@
         </div>
         <div class="container-options">
           <div class="page-title">
-            <button class="terug-knop card button" v-if="step > 0 && step < 4" tabindex="0" @click="vorigeStap">Vorige
+            <button class="terug-knop card button" v-if="step > 0 && step < 3" tabindex="0" @click="vorigeStap">Vorige
               stap
             </button>
             <span class="title">Kapsalon Kapper</span>
@@ -16,21 +16,21 @@
             <div class="treatment-container" v-if="step === 0">
               <TreatmentOverview/>
             </div>
-            <div class="calendar-container" v-if="step === 2">
+            <div class="calendar-container" v-if="step === 1">
               <Calendar class="inner-calendar-container" @selectDateTimeslot="selectDateTimeslot"/>
             </div>
-            <div class="contact-container" v-if="step === 3">
+            <div class="contact-container" v-if="step === 2">
               <Contact/>
             </div>
-            <div class="appointment-container" v-if="step === 4">
+            <div class="appointment-container" v-if="step === 3">
               <AppointmentConfirm/>
             </div>
             <div class="bottom-container-options">
-              <button class="next-page button" @click="changeStep" v-if="step <= 3">Volgende stap</button>
+              <button class="next-page button" @click="changeStep" v-if="step <= 2">Volgende stap</button>
             </div>
           </div>
         </div>
-        <div class="winkelwagen-container" v-if="step <= 4" :class="{'hide-winkelwagen':!winkelwagenOpened}">
+        <div class="winkelwagen-container" v-if="step <= 3" :class="{'hide-winkelwagen':!winkelwagenOpened}">
           <Winkelwagen @changeStep="changeStep"/>
         </div>
     </div>
@@ -92,7 +92,7 @@ export default {
         });
         return
       }
-      if(this.dateTime === null && this.step === 2) {
+      if(this.dateTime === null && this.step === 1) {
         Swal.fire({
           title: 'Error!',
           text: 'Kies een datum en tijd om door te gaan naar de volgende stap.',
@@ -100,14 +100,14 @@ export default {
         });
         return
       }
-      if(Object.entries(this.contact).length < 4  && this.step === 3) {
+      if(Object.entries(this.contact).length < 4  && this.step === 2) {
         Swal.fire({
           title: 'Error!',
           text: 'Vul al uw gegevens in om door te gaan.',
           icon: 'error'
         });
         return
-      } else if (this.step === 3) {
+      } else if (this.step === 2) {
         await this.createAfspraak();
       }
 
