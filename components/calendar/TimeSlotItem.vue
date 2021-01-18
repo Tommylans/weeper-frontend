@@ -1,6 +1,6 @@
 <template>
   <li tabindex="0" @click="selectTimeslot" @keyup.enter="selectTimeslot" :class="{selected: selected}">
-    <span>{{time}}</span>
+    <span>{{time}} - {{endTime}}</span>
     <span>€ {{price}}</span>
   </li>
 </template>
@@ -15,6 +15,9 @@ export default {
   computed: {
     time() {
       return this.timeslot.dateTime.format('HH:mm')
+    },
+    endTime() {
+      return this.$dayjs(this.timeslot.endDateTime).format('HH:mm')
     },
     price() {
       return this.timeslot.price.toFixed(2)

@@ -58,6 +58,14 @@ export default {
         });
         return
       }
+      if(this.treatmentChoices.find(compTreatment => compTreatment.id === treatment.id) != null) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'U kan een behandeling maar 1 keer toevoegen',
+          icon: 'error',
+        });
+        return
+      }
       this.$store.commit('winkelwagen/addTreatmentChoice', treatment);
     }
   },
