@@ -1,16 +1,16 @@
 <template>
   <div>
-    <KapperNavigatieV1/>
+    <KapperNavigatie/>
     <ModulesOverview/>
   </div>
 </template>
 
 <script>
-import KapperNavigatieV1 from "@/components/KapperNavigatie";
+import KapperNavigatie from "@/components/KapperNavigatie";
 import ModulesOverview from "@/components/KapperOverzicht/ModulesOverview";
 
 export default {
-  components: {KapperNavigatieV1, ModulesOverview}
+  components: {KapperNavigatie, ModulesOverview}
 }
 </script>
 

@@ -27,18 +27,17 @@ export default {
 @import "assets/css/include-media";
 
 .container {
-  height: 85vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-top: 3rem;
   align-items: center;
 
   .container-header {
     width: 75%;
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
     font-size: 2em;
 
     @include media('<=tablet') {
@@ -47,12 +46,10 @@ export default {
   }
 
   .container-modules {
-    height: 80%;
     width: 75%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: center;
 
     @include media('<=tablet') {
       width: 90%;
@@ -66,7 +63,7 @@ export default {
   .module {
     width: 45%;
     min-width: 18em;
-    height: 55%;
+    height: 25rem;
     border-radius: 0.7rem;
     padding: 1em;
     display: flex;

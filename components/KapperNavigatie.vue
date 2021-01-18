@@ -2,11 +2,11 @@
   <div class="container">
     <div id="content-mobile">
       <div class="bovenste-balk-mobile card soft-shadow titels">
-        <nav class="kapsalon">
+        <nav class="kapsalon linkjes">
           <a href="//" class="title">Kapsalon Kapper</a>
         </nav>
         <div class="dropdown">
-          <button class="dropbtn" style="float:right"><span class="icon-hamburger"/></button>
+          <button class="dropbtn"><span class="icon-hamburger"/></button>
           <div class="dropdown-content titels">
             <a href="#">Agenda</a>
             <a href="#">Behandeling</a>
@@ -76,11 +76,7 @@ export default {
   padding: 1em;
 }
 
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
+a {
   text-decoration: none;
 }
 
@@ -95,6 +91,7 @@ a:visited {
   border: none;
   background-color: white;
   border-radius: 0.7em;
+  float: right
 }
 
 .dropdown {
@@ -109,7 +106,7 @@ a:visited {
   right: 0;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -120,22 +117,48 @@ a:visited {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
-#content-desktop {display: flex;}
-#content-mobile {display: none;}
+#content-desktop {
+  display: flex;
+}
+
+#content-mobile {
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
 
-  #content-desktop {display: none;}
-  #content-mobile {display: flex;}
+  #content-desktop {
+    display: none;
+  }
+
+  #content-mobile {
+    display: flex;
+  }
 
 }
-#content-desktop {width: 100%; flex-direction: column; justify-content: center}
-#content-mobile {width: 100%; justify-content: center; flex-direction: row}
+
+#content-desktop {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center
+}
+
+#content-mobile {
+  width: 100%;
+  justify-content: center;
+  flex-direction: row
+}
 
 </style>
