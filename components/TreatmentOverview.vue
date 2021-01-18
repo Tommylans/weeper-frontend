@@ -19,7 +19,7 @@
             <span>&nbsp; - &nbsp;</span>
 
             <div class="behandeling-tijd">
-              <p>{{ treatment.duration }} min</p>
+              <p>{{ treatment.minuteDuration }} min</p>
             </div>
           </div>
 
@@ -40,6 +40,14 @@ import Swal from 'sweetalert2';
 
 export default {
   name: "TreatmentOverview",
+  data() {
+    return {
+      treatments: []
+    }
+  },
+  async fetch() {
+    this.treatments = await this.$axios.$get('treatment/list');
+  },
   methods: {
     addToWinkelwagen(treatment) {
       if(this.treatmentChoices.length >= 6) {
@@ -58,36 +66,6 @@ export default {
       return this.$store.state.winkelwagen.treatmentChoices;
     },
   },
-  props: {
-    treatments: { //dummy
-      type: Array,
-      default: () => [
-        {id: 1, price: 15, duration: 45, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 45, duration: 15, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drogen'},
-        {id: 1, price: 30, duration: 30, name: 'Knippen - Wassen - Drodgen'},
-        {id: 1, price: 100, duration: 80, name: 'Knippen - Wassen - Drogen'},
-      ]
-    }
-  }
 }
 </script>
 

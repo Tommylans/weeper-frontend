@@ -18,10 +18,14 @@
 
   .formulate-input-errors {
     // Global error message list wrapper
+    padding: 0;
   }
 
   .formulate-input-error,
   .formulate-file-upload-error {
+    color: red;
+    list-style: none;
+    font-size: 0.8rem;
     // Error message styles
   }
 

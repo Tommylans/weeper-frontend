@@ -38,3 +38,11 @@ body {
 .titels {
   color: #4E5050;
 }
+
+.flex {
+  display: flex;
+
+  &.align-center {
+    align-items: center;
+  }
+}
