@@ -1,8 +1,10 @@
 <template>
   <li tabindex="0" class="afspraak">
-    <span class="tijd-afspraak">{{ time }} uur</span>
-    <span class="naam-afspraak">{{ name }}</span>
-    <span class="behandeling-afspraak">{{ behandeling }}</span>
+    <span class="tijd-afspraak"> {{ time }} uur</span>
+    <span class="naam-afspraak"> {{ name }} </span>
+    <span class="email-afspraak"> {{ mailadres }} </span>
+    <span class="telefoon-afspraak"> {{ telefoon }} </span>
+    <span class="behandeling-afspraak"> {{ behandeling }} </span>
   </li>
 </template>
 
@@ -14,10 +16,19 @@ export default {
   },
   computed: {
     time() {
-      return this.$dayjs(this.appointment.dateTime).format('HH:mm')
+      const startDateLabel = this.$dayjs(this.appointment.startDateTime).format('HH:mm');
+      const endDateLabel = this.$dayjs(this.appointment.endDateTime).format('HH:mm');
+
+      return `${startDateLabel} - ${endDateLabel}`
     },
     name() {
-      return this.appointment.contactDetails.firstname
+      return `${this.appointment.contactDetails.firstname} ${this.appointment.contactDetails.lastname}`
+    },
+    mailadres() {
+      return this.appointment.contactDetails.email
+    },
+    telefoon() {
+      return this.appointment.contactDetails.phoneNumber
     },
     behandeling() {
       return this.appointment.treatmentsLabel
@@ -37,16 +48,26 @@ li {
   margin-bottom: 0.5em;
 
   .tijd-afspraak {
-    width: 33%;
+    width: 20%;
   }
 
   .naam-afspraak {
-    width: 33%;
+    width: 20%;
+    text-align: center;
+  }
+
+  .email-afspraak {
+    width: 20%;
+    text-align: center;
+  }
+
+  .telefoon-afspraak {
+    width: 20%;
     text-align: center;
   }
 
   .behandeling-afspraak {
-    width: 33%;
+    width: 20%;
     text-align: right;
   }
 }
