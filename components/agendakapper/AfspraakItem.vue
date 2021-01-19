@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     time() {
-      return this.appointment.dateTime.format('HH:mm')
+      return this.$dayjs(this.appointment.dateTime).format('HH:mm')
     },
     name() {
       return this.appointment.contactDetails.firstname

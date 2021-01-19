@@ -35,7 +35,7 @@ export default {
   async fetch() {
     let existingAppointments = await this.$axios.$get('/appointment/listexisting');
     this.appointmentsData = existingAppointments.map(appointment => {
-      appointment.dateTime = this.$dayjs(appointment.startDateTime);
+      appointment.dateTime = this.$dayjs(appointment.startDateTime).toDate();
       appointment.treatmentsLabel = appointment.treatments.map(treatment => treatment.name).join(" - ");
 
       return appointment
@@ -43,19 +43,11 @@ export default {
   },
   methods: {
     selectDate(date) {
-      this.selectedDate = date;
-      this.changedDateTimeslot()
+      this.selectedDate = date.toDate();
     },
     isSelectedDate(date) {
       return this.selectedDate.isSame(date, "date")
     },
-    changedDateTimeslot() {
-      if (!this.timeslots) {
-        this.$emit('selectDateTimeslot', null)
-        return;
-      }
-      this.$emit('selectDateTimeslot', this.selectedTimeslot)
-    }
   },
   computed: {
     selectedDateName() {
@@ -72,12 +64,28 @@ export default {
     },
     appointments() {
       return this.appointmentsData.filter(value => this.selectedDate.isSame(value.dateTime, 'date'));
+    },
+    selectedDate: {
+      set(newDate) {
+        this.selectedDateDate = newDate
+      },
+      get() {
+        return this.$dayjs(this.selectedDateDate)
+      }
+    },
+    currentDate: {
+      set(newDate) {
+        this.currentDateDate = newDate
+      },
+      get() {
+        return this.$dayjs(this.currentDateDate)
+      }
     }
   },
   data () {
     return {
-      selectedDate: this.$dayjs(),
-      currentDate: this.$dayjs().startOf("isoWeek"),
+      selectedDateDate: this.$dayjs().toDate(),
+      currentDateDate: this.$dayjs().startOf("isoWeek").toDate(),
       appointmentsData: []
     }
   },
