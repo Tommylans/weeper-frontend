@@ -1,12 +1,15 @@
 <template>
   <div class="winkelwagen-container">
     <div class="winkelmand card shadow">
-
       <div class="body-winkelmand topcard">
         <div class="top-winkelmand card soft-shadow titels">
-          <h2 v-if="treatmentChoices.length !== 1 && step <= 3">{{ treatmentChoices.length }} Behandelingen</h2>
-          <h2 v-else-if="treatmentChoices.length === 1 && step <= 3">{{ treatmentChoices.length }} Behandeling</h2>
-          <h2 v-if="step === 4">Uw afspraak</h2>
+          <template v-if="step <= 2">
+            <h2 v-if="treatmentChoices.length !== 1">{{ treatmentChoices.length }} Behandelingen</h2>
+            <h2 v-else-if="treatmentChoices.length === 1">{{ treatmentChoices.length }} Behandeling</h2>
+
+            <span>{{totalDurationLabel}}</span>
+          </template>
+          <h2 v-if="step === 3">Uw afspraak</h2>
         </div>
 
         <div class="behandelingen-vak">
@@ -28,9 +31,9 @@
         </div>
       </div>
       <div class="bottom-winkelmand button">
-        <button class="next-page" @click="changeStep" v-if="step <= 2">Volgende stap</button>
-        <button class="next-page" @click="changeStep" v-if="step === 3">Bevestig afspraak</button>
-        <button class="next-page" v-if="step === 4">Nog een afspraak maken</button>
+        <button class="next-page" @click="changeStep" v-if="step <= 1">Volgende stap</button>
+        <button class="next-page" @click="changeStep" v-if="step === 2">Bevestig afspraak</button>
+        <button class="next-page" v-if="step === 3">Nog een afspraak maken</button>
         <button class="close-winkelmand" @click="closeWinkelmand">Sluiten</button>
       </div>
     </div>
@@ -45,6 +48,26 @@ export default {
   name: "Winkelwagen",
   components: {Treatment},
   computed: {
+    totalDurationLabel() {
+      let totalMinutes = 0
+
+      for (const treatment of this.treatmentChoices) {
+        totalMinutes += treatment.minuteDuration
+      }
+
+      const duration = this.$dayjs.duration(totalMinutes, "minutes");
+      const units = []
+
+      if (duration.hours() > 0) {
+        units.push(`${duration.hours()} uur`)
+      }
+
+      if (duration.minutes() > 0) {
+        units.push(`${duration.minutes()} minuten`)
+      }
+
+      return units.join(' en ')
+    },
     treatmentChoices() {
       return this.$store.state.winkelwagen.treatmentChoices;
     },
@@ -112,6 +135,7 @@ export default {
         width: 100%;
         height: 25%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
       }
