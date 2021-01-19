@@ -94,7 +94,6 @@ export default {
 
 .top-behandeling .titel-behandeling {
   font-size: 1.5em;
-  color:#4E5050;
 }
 
 .body-behandeling {
