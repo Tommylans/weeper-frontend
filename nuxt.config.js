@@ -55,6 +55,7 @@ export default {
     plugins: [
       'isoWeek',
       'isToday',
+      'duration',
     ] // Your Day.js plugin
   },
 

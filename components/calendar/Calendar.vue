@@ -34,7 +34,7 @@
                       role="button"
                       aria-label=""
                       :timeslot="timeslot"
-                      :key="timeslot.id"
+                      :key="timeslot.timeStamp"
                       :selected="timeslot === selectedTimeslot"
                       @selectTimeslot="selectTimeslot"
         />
@@ -102,22 +102,23 @@ export default {
     },
     timeslots() {
       return this.timeslotsData.filter(value => this.selectedDate.isSame(value.dateTime, 'date'));
-    }
+    },
+    treatmentChoices() {
+      return this.$store.state.winkelwagen.treatmentChoices;
+    },
+  },
+  async fetch() {
+    const timeslots = await this.$axios.$post('/appointment/listAvailableSpots', this.treatmentChoices.map(treatment => treatment.id));
+    this.timeslotsData = timeslots.map(timeslot => {
+      timeslot.dateTime = this.$dayjs(timeslot.startDateTime);
+      return timeslot
+    })
   },
   data() {
     return {
       selectedDate: this.$dayjs(),
       selectedTimeslot: null,
-      timeslotsData: [
-        // Dummy data
-        {id: 1, dateTime: this.$dayjs().add(15, 'minute'), price: 15},
-        {id: 2, dateTime: this.$dayjs().add(30, 'minute'), price: 15},
-        {id: 3, dateTime: this.$dayjs().add(45, 'minute'), price: 15},
-
-        {id: 4, dateTime: this.$dayjs().add(1, 'day').add(4, 'hour').add(15, 'minute'), price: 15},
-        {id: 5, dateTime: this.$dayjs().add(1, 'day').add(4, 'hour').add(30, 'minute'), price: 15},
-        {id: 6, dateTime: this.$dayjs().add(1, 'day').add(4, 'hour').add(45, 'minute'), price: 15},
-      ]
+      timeslotsData: []
     }
   },
 }
@@ -128,6 +129,8 @@ export default {
     min-width: 300px;
     height: 500px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
     .agenda-header {
       margin-bottom: 10px;
@@ -179,6 +182,7 @@ export default {
 
     .time-slots-container {
       padding: 0 10px;
+      overflow-y: scroll;
 
       .time-slots-list {
         padding: 0;
