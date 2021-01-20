@@ -2,8 +2,6 @@
 
   <div class="navigation-links">
     <NuxtLink to="/" class="link navigationbutton soft-shadow">Home</NuxtLink>
-    <NuxtLink to="/" class="link navigationbutton soft-shadow">Voor de salons</NuxtLink>
-    <NuxtLink to="/" class="link navigationbutton soft-shadow">Zoek een salon</NuxtLink>
   </div></template>
 
 <script>
