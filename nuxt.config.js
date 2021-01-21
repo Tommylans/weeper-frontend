@@ -44,7 +44,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'http://kapper-api.tommylans.nl' : 'http://localhost:8080',
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://kapper-api.tommylans.nl' : 'http://localhost:8080',
   },
 
   // DayJS module configuration (https://www.npmjs.com/package/@nuxtjs/dayjs)
