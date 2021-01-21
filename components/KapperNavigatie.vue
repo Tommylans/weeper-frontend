@@ -3,13 +3,13 @@
     <div id="content-mobile">
       <div class="bovenste-balk-mobile card soft-shadow titels">
         <nav class="kapsalon linkjes">
-          <a href="//" class="title">Kapsalon Kapper</a>
+          <NuxtLink to="/kapper" class="title">Kapsalon Kapper</NuxtLink>
         </nav>
         <div class="dropdown">
           <button class="dropbtn"><span class="icon-hamburger"/></button>
           <div class="dropdown-content titels">
-            <a href="#">Agenda</a>
-            <a href="#">Behandeling</a>
+            <NuxtLink to="/kapper/agenda">Agenda</NuxtLink>
+            <NuxtLink to="/kapper/behandelingen">Behandelingen</NuxtLink>
           </div>
         </div>
       </div>
@@ -17,11 +17,11 @@
     <div id="content-desktop">
       <div class="bovenste-balk card soft-shadow titels">
         <nav class="linkjes">
-          <a href="//" class="title">Kapsalon Kapper</a>
+          <NuxtLink to="/kapper" class="title">Kapsalon Kapper</NuxtLink>
         </nav>
         <nav class="linkjes">
-          <a href="//" class="linkje">Agenda</a>
-          <a href="//" class="linkje">Behandeling</a>
+          <NuxtLink class="linkje" to="/kapper/agenda">Agenda</NuxtLink>
+          <NuxtLink class="linkje" to="/kapper/behandelingen">Behandelingen</NuxtLink>
         </nav>
       </div>
     </div>

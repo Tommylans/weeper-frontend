@@ -2,7 +2,7 @@
   <div class="container">
     <span class="container-header">Welkom!</span>
     <div class="container-modules">
-      <NuxtLink to="/" class="module card soft-shadow">
+      <NuxtLink to="/kapper/agenda" class="module card soft-shadow">
         <ClockIcon class="module-icon"/>
         <span class="firstline">Agenda</span>
         <span class="secondline">Overzicht van al uw reserveringen</span>
