@@ -3,7 +3,7 @@
     <KapperNavigatie/>
     <h1 class="container-header">Agenda</h1>
     <div class="container-overzicht">
-      <AfsprakenOverzicht class="afspraken-container"/>
+      <AfsprakenOverzicht />
     </div>
   </div>
 </template>
