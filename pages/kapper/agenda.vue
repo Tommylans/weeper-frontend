@@ -23,15 +23,10 @@ export default {
 
   .container-header {
     width: 85%;
-
   }
 
   .container-overzicht {
     width: 85%;
-
-    .afspraken-container {
-
-    }
   }
 }
 
