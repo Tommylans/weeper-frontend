@@ -1,6 +1,6 @@
 <template>
   <li tabindex="0" @click="selectTimeslot" @keyup.enter="selectTimeslot" :class="{selected: selected}">
-    <span>{{time}}</span>
+    <span>{{time}} - {{endTime}}</span>
     <span>€ {{price}}</span>
   </li>
 </template>
@@ -16,6 +16,9 @@ export default {
     time() {
       return this.timeslot.dateTime.format('HH:mm')
     },
+    endTime() {
+      return this.$dayjs(this.timeslot.endDateTime).format('HH:mm')
+    },
     price() {
       return this.timeslot.price.toFixed(2)
     }
@@ -30,10 +33,11 @@ export default {
 
 <style lang="scss" scoped>
   li {
+    margin: 6px 0;
     padding: 8px;
     line-height: 30px;
 
-    border-bottom: #00000050 dotted 1px;
+    border-radius: 0.7rem;
 
     display: flex;
     justify-content: space-between;
@@ -45,10 +49,6 @@ export default {
     &:hover:not(.selected) {
       background-color: #00000010;
       cursor: pointer;
-    }
-
-    &:nth-last-child(1) {
-      border: none;
     }
   }
 </style>

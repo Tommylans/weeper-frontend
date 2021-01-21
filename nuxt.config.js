@@ -8,16 +8,19 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" },
     ]
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
+  // Global CSS (https://go.nuxtjs.dev/config-css)s
   css: [
+    '@/assets/icons/style.css',
     '@/assets/css/main.css',
     '@/assets/css/global.scss',
+    '@/assets/css/inputs.scss',
     'normalize.css',
-    '@/assets/inputs.scss',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -40,7 +43,9 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: process.env.NODE_ENV === 'production' ? 'http://kapper-api.tommylans.nl' : 'http://localhost:8080',
+  },
 
   // DayJS module configuration (https://www.npmjs.com/package/@nuxtjs/dayjs)
   dayjs: {
@@ -49,10 +54,16 @@ export default {
     plugins: [
       'isoWeek',
       'isToday',
+      'duration',
     ] // Your Day.js plugin
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+
+  server: {
+    host:'0.0.0.0'
   }
+
 }

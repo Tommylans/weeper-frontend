@@ -1,29 +1,18 @@
 <template>
-  <div class="container">
-    <div>
-      <Calendar/>
-    </div>
+  <div>
+    <FrontPagina/>
   </div>
 </template>
 
 <script>
-import Calendar from "../components/calendar/Calendar";
+import FrontPagina from "@/components/FrontPagina";
 export default {
-  components: {Calendar}
+  components: {
+    FrontPagina
+  }
 }
 </script>
 
 <style scoped>
-
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-}
 
 </style>
