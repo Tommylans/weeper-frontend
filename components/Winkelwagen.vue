@@ -126,14 +126,11 @@ export default {
 
     .body-winkelmand {
       min-height: 60%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       font-size: 1.2em;
 
       .top-winkelmand {
         width: 100%;
-        height: 25%;
+        padding: 2em 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -144,7 +141,6 @@ export default {
         height: 75%;
         padding: 0 0 0 1.5em;
         display: flex;
-        flex-direction: row;
         align-items: center;
 
         .behandelingen-lijst {
@@ -160,7 +156,6 @@ export default {
     }
 
     .date-body-winkelmand {
-      height: 28%;
       display: flex;
       align-items: center;
 
@@ -180,7 +175,7 @@ export default {
 
     .bottom-winkelmand {
       width: 100%;
-      height: 12%;
+      padding: 2.3em;
       display: flex;
       justify-content: center;
       align-items: center;
