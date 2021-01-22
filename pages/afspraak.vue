@@ -143,7 +143,7 @@ export default {
     display: flex;
 
     .left-container {
-      width: 80%;
+      width: 75%;
       display: flex;
       flex-direction: column;
 
