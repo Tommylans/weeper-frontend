@@ -4,8 +4,8 @@
       <div class="left-container">
         <div class="bestel-container">
           <BestelNavigation/>
-          <NavigatieLinks v-if="navigationOpened"/>
         </div>
+        <NavigatieLinks class="navigatie-links" v-if="navigationOpened"/>
         <div class="container-options">
           <div class="page-title">
             <button class="terug-knop card button" v-if="step > 0 && step < 3" tabindex="0" @click="vorigeStap">Vorige
@@ -152,14 +152,11 @@ export default {
       }
 
       .bestel-container {
-        width: 100%;
-        height: 10vh;
-        display: flex;
-        flex-direction: row;
+        width: 100vw;
+      }
 
-        @include media('<=tablet') {
-          flex-direction: column;
-        }
+      .navigatie-links {
+        padding-left: 1.5rem;
       }
 
       .container-options {
@@ -167,7 +164,7 @@ export default {
         height: 90vh;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
 
         @include media('<=tablet') {
@@ -284,7 +281,7 @@ export default {
       width: 100%;
 
       @include media('<=tablet'){
-        height: 95vh;
+        height: 92vh;
       }
 
       @include media('<=tablet') {
