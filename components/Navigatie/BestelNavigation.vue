@@ -41,6 +41,7 @@ export default {
 @import "assets/css/include-media";
 
 .bestel-navigation {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 1.2rem 1.5rem 0;
