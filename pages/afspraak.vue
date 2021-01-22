@@ -133,6 +133,10 @@ export default {
 .container-navigatie {
   min-height: 100vh;
 
+  @include media('<=tablet') {
+    min-height: 95vh;
+  }
+
   .container-index {
     width: 100%;
     min-height: 100%;
@@ -155,7 +159,6 @@ export default {
 
         @include media('<=tablet') {
           flex-direction: column;
-          height: 100%;
         }
       }
 
@@ -279,6 +282,10 @@ export default {
     .winkelwagen-container {
       height: 100vh;
       width: 100%;
+
+      @include media('<=tablet'){
+        height: 95vh;
+      }
 
       @include media('<=tablet') {
         position: fixed;
