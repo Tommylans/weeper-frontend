@@ -56,7 +56,6 @@ export default {
     dateOptions() {
       const output = []
 
-      // Dit loopje maakt de dagen aan van maandag tot en met zondag
       for (let i = 0; i < 7; i++) {
         output.push(this.$dayjs(this.currentDate).add(i, 'day'))
       }
